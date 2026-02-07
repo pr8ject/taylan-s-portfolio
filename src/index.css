@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
+/* Helvetica system font — no imports needed */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -67,9 +67,9 @@ All colors MUST be HSL.
 
     --sidebar: 210 40% 98%;
 
-    --font-sans: "Work Sans", ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
-    --font-serif: 'Crimson Pro', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+    --font-serif: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
     --font-mono: 'SF Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 

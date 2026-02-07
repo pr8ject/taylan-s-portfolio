@@ -14,7 +14,15 @@ export default {
   	},
   	fontFamily: {
   		syne: [
-  			'Syne',
+  			'Helvetica Neue',
+  			'Helvetica',
+  			'Arial',
+  			'sans-serif'
+  		],
+  		display: [
+  			'Helvetica Neue',
+  			'Helvetica',
+  			'Arial',
   			'sans-serif'
   		]
   	},
@@ -85,22 +93,37 @@ export default {
   				to: {
   					height: '0'
   				}
+  			},
+  			'photo-wiggle': {
+  				'0%': { transform: 'scale(1) rotate(0deg)' },
+  				'20%': { transform: 'scale(1.12) rotate(-3deg)' },
+  				'40%': { transform: 'scale(1.12) rotate(3deg)' },
+  				'60%': { transform: 'scale(1.12) rotate(-2deg)' },
+  				'80%': { transform: 'scale(1.12) rotate(1deg)' },
+  				'100%': { transform: 'scale(1.12) rotate(0deg)' },
+  			},
+  			'overlay-in': {
+  				'0%': { opacity: '0' },
+  				'100%': { opacity: '1' },
+  			},
+  			'overlay-out': {
+  				'0%': { opacity: '1' },
+  				'100%': { opacity: '0' },
   			}
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
-  			'accordion-up': 'accordion-up 0.2s ease-out'
+  			'accordion-up': 'accordion-up 0.2s ease-out',
+  			'photo-wiggle': 'photo-wiggle 0.6s ease-in-out',
+  			'overlay-in': 'overlay-in 0.5s ease-in forwards',
+  			'overlay-out': 'overlay-out 0.8s ease-out forwards',
   		},
   		fontFamily: {
   			sans: [
-  				'Work Sans',
-  				'ui-sans-serif',
-  				'system-ui',
-  				'sans-serif',
-  				'Apple Color Emoji',
-  				'Segoe UI Emoji',
-  				'Segoe UI Symbol',
-  				'Noto Color Emoji'
+  				'Helvetica Neue',
+  				'Helvetica',
+  				'Arial',
+  				'sans-serif'
   			],
   			serif: [
   				'ui-serif',
