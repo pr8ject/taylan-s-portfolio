@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import Navigation from "./Navigation";
+import { TransitionProvider } from "./PageTransition";
 
 interface LayoutProps {
   children: ReactNode;
@@ -7,10 +8,12 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="min-h-screen bg-background">
-      <Navigation />
-      <main>{children}</main>
-    </div>
+    <TransitionProvider>
+      <div className="min-h-screen bg-background">
+        <Navigation />
+        <main>{children}</main>
+      </div>
+    </TransitionProvider>
   );
 };
 
