@@ -433,7 +433,7 @@ const Hayvanat = () => {
               <p className="font-bold text-foreground uppercase tracking-widest text-sm">
                 Özgür Taylan Çelik
               </p>
-              <p className="text-xs text-muted-foreground mt-1">UX Researcher</p>
+              <p className="text-xs text-muted-foreground mt-1">Experience Designer</p>
               <div className="flex gap-4 mt-4">
                 <button
                   onClick={() => navigateTo("/")}
