@@ -23,9 +23,16 @@ const TransitionContext = createContext<TransitionContextValue>({
 
 export const usePageTransition = () => useContext(TransitionContext);
 
+// Map destination paths to overlay colors
+const getOverlayColor = (path: string) => {
+  if (path === "/about") return "#2C42E7";
+  return "#ffffff";
+};
+
 export const TransitionProvider = ({ children }: { children: ReactNode }) => {
   const navigate = useNavigate();
   const [phase, setPhase] = useState<Phase>("idle");
+  const [overlayColor, setOverlayColor] = useState("#ffffff");
   const timeoutsRef = useRef<number[]>([]);
 
   const clearTimeouts = () => {
@@ -38,10 +45,13 @@ export const TransitionProvider = ({ children }: { children: ReactNode }) => {
       if (phase !== "idle") return;
       clearTimeouts();
 
-      // Phase 1: fade current page to white (1s)
+      // Set overlay color based on destination
+      setOverlayColor(getOverlayColor(path));
+
+      // Phase 1: fade current page (500ms)
       setPhase("covering");
 
-      // Phase 2: once white, navigate and hold (500ms)
+      // Phase 2: once covered, navigate and hold (500ms)
       timeoutsRef.current.push(
         window.setTimeout(() => {
           navigate(path);
@@ -71,12 +81,15 @@ export const TransitionProvider = ({ children }: { children: ReactNode }) => {
       {children}
       <div
         className={cn(
-          "fixed inset-0 bg-white pointer-events-none z-[55]",
+          "fixed inset-0 pointer-events-none z-[55]",
           phase === "covering" && "animate-overlay-in",
           phase === "revealing" && "animate-overlay-out",
           phase === "idle" && "opacity-0"
         )}
-        style={phase === "white" ? { opacity: 1 } : undefined}
+        style={{
+          backgroundColor: overlayColor,
+          ...(phase === "white" ? { opacity: 1 } : {}),
+        }}
       />
     </TransitionContext.Provider>
   );

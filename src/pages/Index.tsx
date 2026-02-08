@@ -1,19 +1,20 @@
 import { useState, useEffect, useRef, useCallback } from "react";
+import { usePageTransition } from "@/components/PageTransition";
 
 // Project data — mix of typographic titles and image cards
 const projects = [
-  { id: 1, title: "Redefining\nFinance.", category: "Fintech UX", type: "title" as const },
-  { id: 2, title: "Mobile Banking", category: "User Research, 2024", type: "image" as const },
-  { id: 3, title: "Every Click\nMatters.", category: "Interaction Design", type: "title" as const },
-  { id: 4, title: "Wealth Management", category: "Case Study, 2024", type: "image" as const },
-  { id: 5, title: "Trust By\nDesign.", category: "UX Strategy", type: "title" as const },
-  { id: 6, title: "Design Systems", category: "Product Design, 2023", type: "image" as const },
-  { id: 7, title: "Beyond\nThe Screen.", category: "Service Design", type: "title" as const },
-  { id: 8, title: "Payment Flow", category: "UX Research, 2023", type: "image" as const },
-  { id: 9, title: "Human\nCentered.", category: "Design Thinking", type: "title" as const },
-  { id: 10, title: "Onboarding UX", category: "Fintech, 2024", type: "image" as const },
-  { id: 11, title: "Always\nLearning.", category: "Personal Growth", type: "title" as const },
-  { id: 12, title: "Accessibility", category: "Inclusive Design, 2023", type: "image" as const },
+  { id: 1, title: "Redefining\nFinance.", category: "Fintech UX", type: "title" as const, link: "", image: "" },
+  { id: 2, title: "Mobile Banking", category: "User Research, 2024", type: "image" as const, link: "", image: "" },
+  { id: 3, title: "Hayvanât", category: "Website Redesign, UX Research", type: "image" as const, link: "/hayvanat", image: "/images/hayvanat/hayvanat-web.png" },
+  { id: 4, title: "Wealth Management", category: "Case Study, 2024", type: "image" as const, link: "", image: "" },
+  { id: 5, title: "Trust By\nDesign.", category: "UX Strategy", type: "title" as const, link: "", image: "" },
+  { id: 6, title: "Design Systems", category: "Product Design, 2023", type: "image" as const, link: "", image: "" },
+  { id: 7, title: "Beyond\nThe Screen.", category: "Service Design", type: "title" as const, link: "", image: "" },
+  { id: 8, title: "Payment Flow", category: "UX Research, 2023", type: "image" as const, link: "", image: "" },
+  { id: 9, title: "Human\nCentered.", category: "Design Thinking", type: "title" as const, link: "", image: "" },
+  { id: 10, title: "Onboarding UX", category: "Fintech, 2024", type: "image" as const, link: "", image: "" },
+  { id: 11, title: "Always\nLearning.", category: "Personal Growth", type: "title" as const, link: "", image: "" },
+  { id: 12, title: "Accessibility", category: "Inclusive Design, 2023", type: "image" as const, link: "", image: "" },
 ];
 
 // Group into rows of 3
@@ -88,29 +89,47 @@ const GridRow = ({
   onTitleHover,
   onTitleLeave,
   onMouseMove,
+  onNavigate,
 }: {
   items: typeof projects;
   onTitleHover: (id: number) => void;
   onTitleLeave: () => void;
   onMouseMove: (e: React.MouseEvent) => void;
+  onNavigate: (path: string) => void;
 }) => (
   <div className="py-6 md:py-10 px-6 md:px-12 lg:px-24">
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 mx-0 md:mx-24 lg:mx-32">
       {items.map((item) => (
         <div key={item.id} className="flex flex-col items-center">
           {item.type === "image" ? (
-            <>
-              <div className="aspect-[4/3] w-full bg-muted mb-3 overflow-hidden">
-                <div className="w-full h-full bg-muted flex items-center justify-center hover:bg-muted/80 transition-colors duration-300 cursor-pointer">
-                  <span className="text-xs text-muted-foreground tracking-[0.15em]">
-                    CASE STUDY
-                  </span>
-                </div>
+            <div
+              className={item.link ? "cursor-pointer group" : ""}
+              onClick={() => item.link && onNavigate(item.link)}
+            >
+              <div className="aspect-[4/3] w-full bg-muted mb-3 overflow-hidden rounded-sm">
+                {item.image ? (
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-muted flex items-center justify-center hover:bg-muted/80 transition-colors duration-300">
+                    <span className="text-xs text-muted-foreground tracking-[0.15em]">
+                      CASE STUDY
+                    </span>
+                  </div>
+                )}
               </div>
-              <span className="text-xs text-muted-foreground tracking-[0.1em] text-center">
+              <span className="text-xs text-muted-foreground tracking-[0.1em] text-center block">
+                {item.title !== item.category && (
+                  <span className="block text-sm font-medium text-foreground mb-1">
+                    {item.title}
+                  </span>
+                )}
                 {item.category}
               </span>
-            </>
+            </div>
           ) : (
             <div
               className="cursor-pointer group"
@@ -137,10 +156,12 @@ const ContentBlock = ({
   onTitleHover,
   onTitleLeave,
   onMouseMove,
+  onNavigate,
 }: {
   onTitleHover: (id: number) => void;
   onTitleLeave: () => void;
   onMouseMove: (e: React.MouseEvent) => void;
+  onNavigate: (path: string) => void;
 }) => (
   <>
     <HeroSection />
@@ -152,6 +173,7 @@ const ContentBlock = ({
           onTitleHover={onTitleHover}
           onTitleLeave={onTitleLeave}
           onMouseMove={onMouseMove}
+          onNavigate={onNavigate}
         />
       ))}
     </div>
@@ -163,6 +185,53 @@ const Index = () => {
   const isResettingRef = useRef(false);
   const [hoveredTitle, setHoveredTitle] = useState<number | null>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const { navigateTo } = usePageTransition();
+
+  // Intro / onboarding state
+  const [introActive, setIntroActive] = useState(true);
+  const [introFading, setIntroFading] = useState(false);
+  const introTriggered = useRef(false);
+
+  const dismissIntro = useCallback(() => {
+    if (introTriggered.current) return;
+    introTriggered.current = true;
+    setIntroFading(true);
+    // After fade-out animation completes, remove overlay and unlock scroll
+    setTimeout(() => {
+      setIntroActive(false);
+    }, 1200);
+  }, []);
+
+  // Auto-dismiss after 3s, or on mouse move / scroll / touch
+  useEffect(() => {
+    if (!introActive || introFading) return;
+
+    const timer = setTimeout(dismissIntro, 3000);
+
+    const handleInteraction = () => dismissIntro();
+    window.addEventListener("mousemove", handleInteraction, { once: true });
+    window.addEventListener("scroll", handleInteraction, { once: true });
+    window.addEventListener("touchstart", handleInteraction, { once: true });
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("mousemove", handleInteraction);
+      window.removeEventListener("scroll", handleInteraction);
+      window.removeEventListener("touchstart", handleInteraction);
+    };
+  }, [introActive, introFading, dismissIntro]);
+
+  // Lock scroll during intro
+  useEffect(() => {
+    if (introActive) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [introActive]);
 
   const handleTitleHover = useCallback((id: number) => setHoveredTitle(id), []);
   const handleTitleLeave = useCallback(() => setHoveredTitle(null), []);
@@ -201,6 +270,31 @@ const Index = () => {
 
   return (
     <>
+      {/* Intro overlay */}
+      {introActive && (
+        <div
+          className="fixed inset-0 z-[60] bg-background flex items-center justify-center cursor-pointer"
+          style={{
+            opacity: introFading ? 0 : 1,
+            transition: "opacity 1.2s ease-out",
+          }}
+          onClick={dismissIntro}
+        >
+          <h1
+            className="font-display text-[64px] md:text-[120px] lg:text-[170px] font-black text-foreground leading-[0.88] tracking-[-0.03em] text-center px-8"
+            style={{
+              opacity: introFading ? 0 : 1,
+              transform: introFading ? "scale(0.96)" : "scale(1)",
+              transition: "opacity 0.8s ease-out, transform 1.2s ease-out",
+            }}
+          >
+            Experience
+            <br />
+            Is Everything.
+          </h1>
+        </div>
+      )}
+
       {/* Sticky side names with x-ray blend */}
       <StickyNames />
 
@@ -214,6 +308,7 @@ const Index = () => {
             onTitleHover={handleTitleHover}
             onTitleLeave={handleTitleLeave}
             onMouseMove={handleMouseMove}
+            onNavigate={navigateTo}
           />
         </div>
 
