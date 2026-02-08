@@ -13,6 +13,12 @@ export default {
   		}
   	},
   	fontFamily: {
+  		sans: [
+  			'Helvetica Neue',
+  			'Helvetica',
+  			'Arial',
+  			'sans-serif'
+  		],
   		syne: [
   			'Helvetica Neue',
   			'Helvetica',

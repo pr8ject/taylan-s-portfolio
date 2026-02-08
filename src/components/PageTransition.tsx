@@ -7,7 +7,6 @@ import {
   ReactNode,
 } from "react";
 import { useNavigate } from "react-router-dom";
-import { cn } from "@/lib/utils";
 
 type Phase = "idle" | "covering" | "white" | "revealing";
 
@@ -76,19 +75,24 @@ export const TransitionProvider = ({ children }: { children: ReactNode }) => {
     [navigate, phase]
   );
 
+  // Derive opacity and transition from phase — no CSS animations needed
+  const overlayOpacity = phase === "covering" || phase === "white" ? 1 : 0;
+  const overlayTransition =
+    phase === "covering"
+      ? "opacity 0.5s ease-in"
+      : phase === "revealing"
+        ? "opacity 0.8s ease-out"
+        : "none";
+
   return (
     <TransitionContext.Provider value={{ navigateTo, phase }}>
       {children}
       <div
-        className={cn(
-          "fixed inset-0 pointer-events-none z-[55]",
-          phase === "covering" && "animate-overlay-in",
-          phase === "revealing" && "animate-overlay-out",
-          phase === "idle" && "opacity-0"
-        )}
+        className="fixed inset-0 pointer-events-none z-[55]"
         style={{
           backgroundColor: overlayColor,
-          ...(phase === "white" ? { opacity: 1 } : {}),
+          opacity: overlayOpacity,
+          transition: overlayTransition,
         }}
       />
     </TransitionContext.Provider>

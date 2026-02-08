@@ -10,6 +10,9 @@ import Research from "./pages/Research";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Hayvanat from "./pages/Hayvanat";
+import OtcHackathon from "./pages/OtcHackathon";
+import TrustByDesign from "./pages/TrustByDesign";
+import BeyondTheScreen from "./pages/BeyondTheScreen";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +30,9 @@ const App = () => (
             <Route path="/research" element={<Research />} />
             <Route path="/about" element={<About />} />
             <Route path="/hayvanat" element={<Hayvanat />} />
+            <Route path="/otc-hackathon" element={<OtcHackathon />} />
+            <Route path="/trust-by-design" element={<TrustByDesign />} />
+            <Route path="/beyond-the-screen" element={<BeyondTheScreen />} />
             <Route path="/contact" element={<Contact />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
