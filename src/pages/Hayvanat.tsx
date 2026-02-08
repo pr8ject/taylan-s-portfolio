@@ -27,11 +27,11 @@ const Hayvanat = () => {
 
       {/* ===== HERO IMAGE ===== */}
       <section className="pt-24">
-        <div className="w-full aspect-[16/7] bg-muted flex items-center justify-center">
-          <span className="text-sm text-muted-foreground tracking-[0.2em] uppercase">
-            Project Cover
-          </span>
-        </div>
+        <img
+          src="/images/hayvanat/hero-mockup.png"
+          alt="Hayvanat website redesign mockup"
+          className="w-full object-cover"
+        />
       </section>
 
       {/* ===== TITLE + SUBTITLE ===== */}
@@ -116,9 +116,10 @@ const Hayvanat = () => {
           </div>
 
           <img
-            src="/images/hayvanat/portfolio.png"
+            src="/images/hayvanat/portfolio-hq.avif"
             alt="Hayvanat portfolio showcase"
             className="w-full rounded-lg object-contain"
+            style={{ mixBlendMode: "multiply" }}
           />
         </div>
       </section>
@@ -252,11 +253,11 @@ const Hayvanat = () => {
             <div>
               <img
                 src="/images/hayvanat/sketch-1.jpg"
-                alt="Medium-fi sketch"
+                alt="First landing page concept"
                 className="w-full rounded-lg"
               />
               <p className="text-[11px] text-muted-foreground/50 mt-2 tracking-wider uppercase">
-                Medium-Fi Sketch
+                First Landing Page Concept
               </p>
             </div>
           </div>
@@ -264,11 +265,11 @@ const Hayvanat = () => {
           <div className="mb-16">
             <img
               src="/images/hayvanat/sketch-2.jpg"
-              alt="Medium-fi sketch iteration"
+              alt="Early design exploration"
               className="w-full rounded-lg"
             />
             <p className="text-[11px] text-muted-foreground/50 mt-2 tracking-wider uppercase">
-              Medium-Fi Sketch
+              Early Design Exploration
             </p>
           </div>
 
@@ -295,33 +296,109 @@ const Hayvanat = () => {
             04 — Deliver
           </h2>
 
+          <h3 className="text-sm font-bold text-foreground uppercase tracking-widest mb-4">
+            Results & Impact
+          </h3>
+          <p className="text-sm text-muted-foreground leading-relaxed mb-10 max-w-3xl">
+            Compared to the previous period (January 2 — December 31, 2024), the redesigned platform showed <strong className="text-foreground">massive growth across all key metrics</strong>. The mobile-first approach ensured accessibility across all devices, and the intuitive search-first experience brought users from all over the world.
+          </p>
+
+          {/* Metrics row */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+            <div>
+              <span className="block text-3xl md:text-4xl font-black text-foreground">3,302</span>
+              <span className="text-xs text-muted-foreground tracking-wider uppercase">Site Sessions</span>
+            </div>
+            <div>
+              <span className="block text-3xl md:text-4xl font-black text-foreground text-green-600">1,745%</span>
+              <span className="text-xs text-muted-foreground tracking-wider uppercase">Session Growth</span>
+            </div>
+            <div>
+              <span className="block text-3xl md:text-4xl font-black text-foreground">1,962</span>
+              <span className="text-xs text-muted-foreground tracking-wider uppercase">Unique Visitors</span>
+            </div>
+            <div>
+              <span className="block text-3xl md:text-4xl font-black text-foreground text-green-600">1,700%</span>
+              <span className="text-xs text-muted-foreground tracking-wider uppercase">Visitor Growth</span>
+            </div>
+          </div>
+
+          {/* Traffic sources */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
             <div>
-              <h3 className="text-sm font-bold text-foreground uppercase tracking-widest mb-4">
-                Results & Impact
-              </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-                Daily unique site visits, which previously averaged between <strong className="text-foreground">2-5 visitors</strong>, surged to consistent double-digit figures, peaking at <strong className="text-foreground">over 40 views in one day</strong> post-launch. The redesign prioritized a mobile-first approach, ensuring accessibility and usability across all devices.
-              </p>
-              <div className="flex gap-12 mt-8">
-                <div>
-                  <span className="block text-4xl md:text-5xl font-black text-foreground">2-5</span>
-                  <span className="text-xs text-muted-foreground tracking-wider uppercase">Daily visits before</span>
-                </div>
-                <div>
-                  <span className="block text-4xl md:text-5xl font-black text-foreground">40+</span>
-                  <span className="text-xs text-muted-foreground tracking-wider uppercase">Peak daily visits after</span>
-                </div>
+              <h4 className="text-xs font-bold text-foreground uppercase tracking-widest mb-6">
+                Sessions by Source
+              </h4>
+              <div className="space-y-4">
+                {[
+                  { source: "Direct", sessions: 1688, growth: "1,677%" },
+                  { source: "Google (Organic)", sessions: 1096, growth: "2,944%" },
+                  { source: "Instagram (Organic)", sessions: 228, growth: "1,420%" },
+                  { source: "Yandex (Organic)", sessions: 58, growth: "5,700%" },
+                ].map((item) => (
+                  <div key={item.source} className="flex items-center justify-between">
+                    <span className="text-sm text-muted-foreground">{item.source}</span>
+                    <div className="flex items-center gap-3">
+                      <span className="text-xs text-green-600 font-medium">+{item.growth}</span>
+                      <span className="text-sm font-bold text-foreground w-16 text-right">{item.sessions.toLocaleString()}</span>
+                    </div>
+                  </div>
+                ))}
               </div>
+            </div>
+
+            <div>
+              <h4 className="text-xs font-bold text-foreground uppercase tracking-widest mb-6">
+                Sessions by Country
+              </h4>
+              <div className="space-y-4">
+                {[
+                  { country: "Turkey", sessions: 2427 },
+                  { country: "Cambodia", sessions: 168 },
+                  { country: "United States", sessions: 100 },
+                  { country: "Thailand", sessions: 79 },
+                  { country: "Russia", sessions: 63 },
+                ].map((item) => (
+                  <div key={item.country}>
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="text-sm text-muted-foreground">{item.country}</span>
+                      <span className="text-sm font-bold text-foreground">{item.sessions.toLocaleString()}</span>
+                    </div>
+                    <div className="w-full h-1 bg-muted rounded-full overflow-hidden">
+                      <div
+                        className="h-full bg-foreground/60 rounded-full"
+                        style={{ width: `${(item.sessions / 2427) * 100}%` }}
+                      />
+                    </div>
+                  </div>
+                ))}
+                <p className="text-[11px] text-muted-foreground/50 mt-4 tracking-wider uppercase">
+                  2,427 sessions from Turkey — reaching users worldwide
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Visual proof — analytics screenshots */}
+          <div className="space-y-8 mb-16">
+            <div>
+              <img
+                src="/images/hayvanat/traffic-overview.png"
+                alt="Traffic overview — 3,302 site sessions, 1,745% growth"
+                className="w-full rounded-lg border border-border"
+              />
+              <p className="text-[11px] text-muted-foreground/50 mt-2 tracking-wider uppercase">
+                Traffic Overview — Compared to Previous Period (Jan 2 — Dec 31, 2024)
+              </p>
             </div>
             <div>
               <img
-                src="/images/hayvanat/site-sessions.jpg"
-                alt="Site sessions analytics"
-                className="w-full rounded-lg"
+                src="/images/hayvanat/sessions-by-country.png"
+                alt="Sessions by country — 2,427 from Turkey"
+                className="w-full rounded-lg border border-border"
               />
               <p className="text-[11px] text-muted-foreground/50 mt-2 tracking-wider uppercase">
-                Site Sessions
+                Sessions by Country — Global Reach
               </p>
             </div>
           </div>
