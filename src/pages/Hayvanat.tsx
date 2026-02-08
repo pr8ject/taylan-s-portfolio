@@ -1,25 +1,21 @@
 import { usePageTransition } from "@/components/PageTransition";
 import { ChevronLeft } from "lucide-react";
-import { useState } from "react";
 
 const Hayvanat = () => {
   const { navigateTo } = usePageTransition();
-  const [homeHovered, setHomeHovered] = useState(false);
 
   return (
     <div className="bg-background min-h-screen">
-      {/* Nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50">
+      {/* Nav — x-ray blend */}
+      <nav className="fixed top-0 left-0 right-0 z-50" style={{ mixBlendMode: "difference" }}>
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="flex items-center h-20 md:h-24">
             <button
               onClick={() => navigateTo("/")}
-              onMouseEnter={() => setHomeHovered(true)}
-              onMouseLeave={() => setHomeHovered(false)}
-              className="flex items-center gap-1 text-foreground font-bold text-base md:text-lg tracking-wide hover:opacity-70 transition-opacity"
+              className="flex items-center gap-1 text-white font-bold text-base md:text-lg tracking-wide hover:opacity-70 transition-opacity"
             >
               <ChevronLeft size={20} strokeWidth={3} />
-              {homeHovered ? "Country roads, take me home" : "Home"}
+              Home
             </button>
           </div>
         </div>
@@ -458,6 +454,12 @@ const Hayvanat = () => {
                 See More Of My Work:
               </p>
               <div className="space-y-3">
+                <button
+                  onClick={() => navigateTo("/otc-hackathon")}
+                  className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  OTC Options Platform — AI Hackathon →
+                </button>
                 <button
                   onClick={() => navigateTo("/")}
                   className="block text-sm text-muted-foreground hover:text-foreground transition-colors"

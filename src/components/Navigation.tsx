@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { ChevronLeft } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -7,14 +7,25 @@ import { usePageTransition } from "./PageTransition";
 const Navigation = () => {
   const [homeHovered, setHomeHovered] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const navigatingRef = useRef(false);
   const location = useLocation();
   const { navigateTo } = usePageTransition();
   const isAbout = location.pathname === "/about";
   const isCaseStudy = location.pathname !== "/" && location.pathname !== "/about";
 
+  // Reset hover state whenever we arrive at a new page
+  useEffect(() => {
+    setIsHovered(false);
+    navigatingRef.current = false;
+  }, [location.pathname]);
+
   const handleNav = (path: string) => {
-    if (location.pathname === path) return;
-    navigateTo(path);
+    if (location.pathname === path || navigatingRef.current) return;
+    navigatingRef.current = true;
+    // Let the card fan-out animation play, then navigate
+    setTimeout(() => {
+      navigateTo(path);
+    }, 450);
   };
 
   // Case study pages have their own nav — hide global nav
