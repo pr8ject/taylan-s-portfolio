@@ -25,10 +25,10 @@ const About = () => {
                   Hello, I'm Taylan
                 </h2>
                 <p className="text-base text-white/70 leading-relaxed mb-4">
-                  I'm a UX Researcher specializing in fintech and digital banking experiences. With a background in behavioral psychology and human-computer interaction, I help organizations understand their users and create products that truly resonate.
+                  I'm a research-led experience designer who discovers opportunities, aligns stakeholders through workshops, and turns insights into tested, shippable product experiences. I specialize in fintech and digital banking — leading product discovery research, facilitating concept workshops, designing interaction flows, and running moderated usability tests to iterate on the final solution.
                 </p>
                 <p className="text-base text-white/70 leading-relaxed">
-                  My approach combines quantitative data analysis with qualitative research methods to uncover deep insights about user behavior and motivation.
+                  I frame problems in product language — risks, metrics, constraints — and use research to choose a direction, not just refine an existing one. My workshops align stakeholders and de-risk decisions; my flows and prototypes embody those decisions; and I measure what changed in the product, the business, and user behavior.
                 </p>
               </div>
 
@@ -39,11 +39,12 @@ const About = () => {
                 </h3>
                 <div className="flex flex-wrap gap-3">
                   {[
-                    "User Research",
+                    "Product Discovery",
+                    "UX Research",
+                    "Stakeholder Workshops",
+                    "Interaction Design",
                     "Usability Testing",
-                    "Behavioral Analysis",
                     "Design Thinking",
-                    "Data Analysis",
                     "Prototyping",
                   ].map((skill) => (
                     <span
@@ -63,11 +64,11 @@ const About = () => {
                 </h3>
                 <div className="space-y-4">
                   <div>
-                    <p className="text-base text-white">Senior UX Researcher</p>
+                    <p className="text-base text-white">Experience Designer</p>
                     <p className="text-sm text-white/50">Fintech Company — 2022–Present</p>
                   </div>
                   <div>
-                    <p className="text-base text-white">UX Researcher</p>
+                    <p className="text-base text-white">Experience Designer</p>
                     <p className="text-sm text-white/50">Digital Agency — 2019–2022</p>
                   </div>
                 </div>
