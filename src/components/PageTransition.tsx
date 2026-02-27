@@ -44,6 +44,11 @@ export const TransitionProvider = ({ children }: { children: ReactNode }) => {
       if (phase !== "idle") return;
       clearTimeouts();
 
+      // Save scroll position if navigating away from home
+      if (window.location.pathname === "/" && path !== "/") {
+        sessionStorage.setItem("homeScrollPosition", String(window.scrollY));
+      }
+
       // Set overlay color based on destination
       setOverlayColor(getOverlayColor(path));
 

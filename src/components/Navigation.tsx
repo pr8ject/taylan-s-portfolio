@@ -94,12 +94,12 @@ const Navigation = () => {
             {/* Front card — photo */}
             <div
               className={cn(
-                "absolute inset-0 rounded-xl bg-muted overflow-hidden grayscale shadow-sm transition-transform duration-500 ease-out",
+                "absolute inset-0 rounded-xl overflow-hidden grayscale shadow-sm transition-transform duration-500 ease-out pointer-events-none",
                 isHovered ? "-rotate-3 -translate-x-0.5" : "rotate-0 translate-x-0"
               )}
             >
               <img
-                src="/placeholder.svg"
+                src="/images/profile.png"
                 alt="Özgür Taylan Çelik"
                 className="w-full h-full object-cover"
               />

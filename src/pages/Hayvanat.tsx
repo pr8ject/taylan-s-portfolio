@@ -12,7 +12,7 @@ const Hayvanat = () => {
           <div className="flex items-center h-20 md:h-24">
             <button
               onClick={() => navigateTo("/")}
-              className="flex items-center gap-1 text-white font-bold text-base md:text-lg tracking-wide hover:opacity-70 transition-opacity"
+              className="flex items-center gap-1 text-white font-bold text-base md:text-lg tracking-wide hover:opacity-70 transition-opacity cursor-pointer"
             >
               <ChevronLeft size={20} strokeWidth={3} />
               Home
@@ -437,13 +437,13 @@ const Hayvanat = () => {
               <div className="flex gap-4 mt-4">
                 <button
                   onClick={() => navigateTo("/")}
-                  className="text-xs text-muted-foreground hover:text-foreground transition-colors uppercase tracking-wider border border-border px-4 py-2 rounded-full"
+                  className="text-xs text-muted-foreground hover:text-foreground transition-colors uppercase tracking-wider border border-border px-4 py-2 rounded-full cursor-pointer"
                 >
                   Work
                 </button>
                 <button
                   onClick={() => navigateTo("/about")}
-                  className="text-xs text-muted-foreground hover:text-foreground transition-colors uppercase tracking-wider border border-border px-4 py-2 rounded-full"
+                  className="text-xs text-muted-foreground hover:text-foreground transition-colors uppercase tracking-wider border border-border px-4 py-2 rounded-full cursor-pointer"
                 >
                   About
                 </button>
@@ -456,13 +456,13 @@ const Hayvanat = () => {
               <div className="space-y-3">
                 <button
                   onClick={() => navigateTo("/otc-hackathon")}
-                  className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="block text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                 >
                   OTC Options Platform — AI Hackathon →
                 </button>
                 <button
                   onClick={() => navigateTo("/")}
-                  className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="block text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                 >
                   All Case Studies →
                 </button>

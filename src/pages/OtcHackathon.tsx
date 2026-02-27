@@ -1,8 +1,10 @@
 import { usePageTransition } from "@/components/PageTransition";
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, X } from "lucide-react";
+import { useState } from "react";
 
 const OtcHackathon = () => {
   const { navigateTo } = usePageTransition();
+  const [enlargedImage, setEnlargedImage] = useState<string | null>(null);
 
   return (
     <div className="bg-background min-h-screen">
@@ -12,7 +14,7 @@ const OtcHackathon = () => {
           <div className="flex items-center h-20 md:h-24">
             <button
               onClick={() => navigateTo("/")}
-              className="flex items-center gap-1 text-white font-bold text-base md:text-lg tracking-wide hover:opacity-70 transition-opacity"
+              className="flex items-center gap-1 text-white font-bold text-base md:text-lg tracking-wide hover:opacity-70 transition-opacity cursor-pointer"
             >
               <ChevronLeft size={20} strokeWidth={3} />
               Home
@@ -23,11 +25,11 @@ const OtcHackathon = () => {
 
       {/* ===== HERO IMAGE ===== */}
       <section className="pt-24">
-        <div className="w-full aspect-[16/7] bg-muted flex items-center justify-center">
-          <span className="text-xs text-muted-foreground tracking-[0.15em]">
-            HERO IMAGE
-          </span>
-        </div>
+        <img
+          src="/images/otc-hackathon/hero.jpg"
+          alt="Hackathon 2024 presentation"
+          className="w-full aspect-[16/7] object-cover"
+        />
       </section>
 
       {/* ===== TITLE + SUBTITLE ===== */}
@@ -101,13 +103,18 @@ const OtcHackathon = () => {
               </p>
             </div>
             <div>
-              <div className="w-full aspect-[4/3] bg-muted rounded-lg flex items-center justify-center">
-                <span className="text-xs text-muted-foreground tracking-[0.15em]">
-                  RESEARCH IMAGE
-                </span>
-              </div>
+              <button
+                onClick={() => setEnlargedImage("/images/otc-hackathon/swot.png")}
+                className="w-full cursor-pointer hover:opacity-80 transition-opacity"
+              >
+                <img
+                  src="/images/otc-hackathon/swot.png"
+                  alt="SWOT Analysis"
+                  className="w-full aspect-[4/3] object-contain rounded-lg"
+                />
+              </button>
               <p className="text-[11px] text-muted-foreground/50 mt-2 tracking-wider uppercase">
-                Competitive Benchmarking & SWOT Analysis
+                SWOT Analysis
               </p>
             </div>
           </div>
@@ -210,42 +217,24 @@ const OtcHackathon = () => {
           </div>
 
           {/* Design artifacts */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            <div>
-              <div className="w-full aspect-[4/3] bg-muted rounded-lg flex items-center justify-center">
-                <span className="text-xs text-muted-foreground tracking-[0.15em]">
-                  FIGMA DESIGN
-                </span>
-              </div>
-              <p className="text-[11px] text-muted-foreground/50 mt-2 tracking-wider uppercase">
-                Figma — Rapid Iteration
-              </p>
-            </div>
-            <div>
-              <div className="w-full aspect-[4/3] bg-muted rounded-lg flex items-center justify-center">
-                <span className="text-xs text-muted-foreground tracking-[0.15em]">
-                  LIVE PROTOTYPE
-                </span>
-              </div>
-              <p className="text-[11px] text-muted-foreground/50 mt-2 tracking-wider uppercase">
-                Live Environment on AWS
-              </p>
-            </div>
+          <div className="mb-16">
+            <img
+              src="/images/otc-hackathon/concept.png"
+              alt="OTC Options Platform concept screens"
+              className="w-full object-contain rounded-lg"
+            />
+            <p className="text-[11px] text-muted-foreground/50 mt-2 tracking-wider uppercase">
+              OTC Options Platform — UI Concept
+            </p>
           </div>
 
           {/* Constraint story */}
           <h3 className="text-sm font-bold text-foreground uppercase tracking-widest mb-4">
             Working Through Constraints
           </h3>
-          <p className="text-sm text-muted-foreground leading-relaxed mb-8 max-w-2xl">
+          <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">
             Beyond the 48-hour deadline, I was designing with a <strong className="text-foreground">broken pinky finger in a cast</strong>. Speed and clarity were prioritized over polish — every interaction had to count. The constraint didn't slow us down; it sharpened our focus on what truly mattered.
           </p>
-
-          <div className="w-full aspect-[16/9] bg-muted rounded-lg flex items-center justify-center">
-            <span className="text-xs text-muted-foreground tracking-[0.15em]">
-              PLATFORM SCREENSHOT
-            </span>
-          </div>
         </div>
       </section>
 
@@ -264,19 +253,19 @@ const OtcHackathon = () => {
           </p>
 
           {/* Award highlight */}
-          <div className="bg-muted/50 rounded-2xl p-8 md:p-12 mb-16">
-            <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
-              <div className="shrink-0">
-                <span className="text-5xl md:text-6xl font-black text-foreground">🏆</span>
-              </div>
-              <div>
-                <h4 className="text-lg font-bold text-foreground mb-2">
-                  Jury Special Prize
-                </h4>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  The jury awarded our team a <strong className="text-foreground">Special Prize for our thinking and design approach</strong>. The recognition wasn't just for the deliverable — it was for how we framed the problem, made decisions under extreme constraints, and demonstrated the potential of digitalizing OTC processes.
-                </p>
-              </div>
+          <div className="mb-16">
+            <img
+              src="/images/otc-hackathon/prize.jpg"
+              alt="Team receiving Jury Special Prize at Hackathon 2024"
+              className="w-full object-cover rounded-lg mb-6"
+            />
+            <div>
+              <h4 className="text-lg font-bold text-foreground mb-2">
+                Jury Special Prize
+              </h4>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                The jury awarded our team a <strong className="text-foreground">Special Prize for our thinking and design approach</strong>. The recognition wasn't just for the deliverable — it was for how we framed the problem, made decisions under extreme constraints, and demonstrated the potential of digitalizing OTC processes.
+              </p>
             </div>
           </div>
 
@@ -329,13 +318,13 @@ const OtcHackathon = () => {
               <div className="flex gap-4 mt-4">
                 <button
                   onClick={() => navigateTo("/")}
-                  className="text-xs text-muted-foreground hover:text-foreground transition-colors uppercase tracking-wider border border-border px-4 py-2 rounded-full"
+                  className="text-xs text-muted-foreground hover:text-foreground transition-colors uppercase tracking-wider border border-border px-4 py-2 rounded-full cursor-pointer"
                 >
                   Work
                 </button>
                 <button
                   onClick={() => navigateTo("/about")}
-                  className="text-xs text-muted-foreground hover:text-foreground transition-colors uppercase tracking-wider border border-border px-4 py-2 rounded-full"
+                  className="text-xs text-muted-foreground hover:text-foreground transition-colors uppercase tracking-wider border border-border px-4 py-2 rounded-full cursor-pointer"
                 >
                   About
                 </button>
@@ -348,13 +337,13 @@ const OtcHackathon = () => {
               <div className="space-y-3">
                 <button
                   onClick={() => navigateTo("/hayvanat")}
-                  className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="block text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                 >
                   Hayvanat — Website Redesign →
                 </button>
                 <button
                   onClick={() => navigateTo("/")}
-                  className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="block text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                 >
                   All Case Studies →
                 </button>
@@ -363,6 +352,27 @@ const OtcHackathon = () => {
           </div>
         </div>
       </section>
+
+      {/* ===== IMAGE LIGHTBOX MODAL ===== */}
+      {enlargedImage && (
+        <div
+          className="fixed inset-0 z-[9999] bg-black/80 flex items-center justify-center p-4"
+          onClick={() => setEnlargedImage(null)}
+        >
+          <button
+            onClick={() => setEnlargedImage(null)}
+            className="absolute top-4 right-4 text-white hover:opacity-70 transition-opacity"
+          >
+            <X size={32} strokeWidth={2} />
+          </button>
+          <img
+            src={enlargedImage}
+            alt="Enlarged view"
+            className="max-w-4xl max-h-[90vh] object-contain rounded-lg"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </div>
   );
 };

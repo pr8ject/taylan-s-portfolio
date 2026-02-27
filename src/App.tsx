@@ -13,6 +13,7 @@ import Hayvanat from "./pages/Hayvanat";
 import OtcHackathon from "./pages/OtcHackathon";
 import TrustByDesign from "./pages/TrustByDesign";
 import BeyondTheScreen from "./pages/BeyondTheScreen";
+import Searcho from "./pages/Searcho";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -33,6 +34,7 @@ const App = () => (
             <Route path="/otc-hackathon" element={<OtcHackathon />} />
             <Route path="/trust-by-design" element={<TrustByDesign />} />
             <Route path="/beyond-the-screen" element={<BeyondTheScreen />} />
+            <Route path="/searcho" element={<Searcho />} />
             <Route path="/contact" element={<Contact />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />

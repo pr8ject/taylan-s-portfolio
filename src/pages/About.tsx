@@ -9,12 +9,14 @@ const About = () => {
           </h1>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
-            {/* Photo Placeholder */}
+            {/* Photo */}
             <div className="lg:col-span-1">
-              <div className="aspect-[3/4] bg-white/10 rounded-lg flex items-center justify-center">
-                <span className="text-sm text-white/50 tracking-wider">
-                  PHOTO
-                </span>
+              <div className="aspect-[3/4] bg-white/10 rounded-lg overflow-hidden">
+                <img
+                  src="/images/about-photo.jpg"
+                  alt="Özgür Taylan Çelik"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
 
@@ -25,10 +27,10 @@ const About = () => {
                   Hello, I'm Taylan
                 </h2>
                 <p className="text-base text-white/70 leading-relaxed mb-4">
-                  I'm a research-led experience designer who discovers opportunities, aligns stakeholders through workshops, and turns insights into tested, shippable product experiences. I specialize in fintech and digital banking — leading product discovery research, facilitating concept workshops, designing interaction flows, and running moderated usability tests to iterate on the final solution.
+                  I'm an experience designer who believes great products start with understanding people. Whether it's uncovering how users interact with fintech platforms, mapping the journey through a redesigned website, or designing an AI-native research toolI start with real problems and real conversations, not assumptions.
                 </p>
                 <p className="text-base text-white/70 leading-relaxed">
-                  I frame problems in product language — risks, metrics, constraints — and use research to choose a direction, not just refine an existing one. My workshops align stakeholders and de-risk decisions; my flows and prototypes embody those decisions; and I measure what changed in the product, the business, and user behavior.
+                  I bring stakeholders together through workshops to align on what matters, then validate those insights through research and prototyping. I care about the gapsbetween what users need and what teams build, between business goals and user behavior, between design intention and reality. My work bridges those gaps by turning research into decisions, decisions into products, and products into measurable change.
                 </p>
               </div>
 
@@ -42,7 +44,7 @@ const About = () => {
                     "Product Discovery",
                     "UX Research",
                     "Stakeholder Workshops",
-                    "Interaction Design",
+                    "Product Design",
                     "Usability Testing",
                     "Design Thinking",
                     "Prototyping",
@@ -57,71 +59,69 @@ const About = () => {
                 </div>
               </div>
 
-              {/* Experience */}
-              <div>
-                <h3 className="text-lg font-medium text-white mb-4">
-                  Experience
-                </h3>
-                <div className="space-y-4">
-                  <div>
-                    <p className="text-base text-white">Experience Designer</p>
-                    <p className="text-sm text-white/50">Fintech Company — 2022–Present</p>
-                  </div>
-                  <div>
-                    <p className="text-base text-white">Experience Designer</p>
-                    <p className="text-sm text-white/50">Digital Agency — 2019–2022</p>
+              {/* Experience & Let's Talk */}
+              <div className="space-y-8">
+                {/* Experience */}
+                <div>
+                  <h3 className="text-lg font-medium text-white mb-4">
+                    Experience
+                  </h3>
+                  <div className="space-y-6">
+                    <div>
+                      <p className="text-base text-white font-medium">Fibabanka</p>
+                      <p className="text-sm text-white/50">2022 to Present</p>
+                      <p className="text-sm text-white/70 mt-1">Leading design and research initiatives in fintech</p>
+                    </div>
+                    <div>
+                      <p className="text-base text-white font-medium">Local Leader, IxDF Ankara</p>
+                      <p className="text-sm text-white/50">Dec 2024 to Present</p>
+                      <p className="text-sm text-white/70 mt-1">Building the design community and mentoring emerging designers</p>
+                    </div>
+                    <div>
+                      <p className="text-base text-white font-medium">Consultant, Experience Design Initiative</p>
+                      <p className="text-sm text-white/50">2022 to Present</p>
+                      <p className="text-sm text-white/70 mt-1">Advising on research-driven product and service design</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
 
-              {/* Contact */}
-              <div className="pt-4">
-                <h3 className="text-lg font-medium text-white mb-6">
-                  Let's Talk
-                </h3>
-                <div className="space-y-4">
-                  <a
-                    href="mailto:hello@taylan.com"
-                    className="flex items-center gap-3 text-white/70 hover:text-white transition-colors"
-                  >
-                    <span className="text-base">hello@taylan.com</span>
-                  </a>
-                  <a
-                    href="https://linkedin.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-white/70 hover:text-white transition-colors"
-                  >
-                    <span className="text-base">LinkedIn</span>
-                  </a>
-                </div>
-                <div className="mt-6">
-                  <span className="text-xs text-white/40 tracking-wider uppercase">
-                    Based in
-                  </span>
-                  <p className="text-base text-white mt-1">
-                    Istanbul, Turkey
-                  </p>
+                {/* Let's Talk */}
+                <div>
+                  <h3 className="text-lg font-medium text-white mb-6">
+                    Let's Talk
+                  </h3>
+                  <div className="space-y-4">
+                    <a
+                      href="https://www.linkedin.com/in/ozgur-taylan-celik/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 text-white/70 hover:text-white transition-colors"
+                    >
+                      <span className="text-base">LinkedIn</span>
+                    </a>
+                  </div>
+                  <div className="mt-6">
+                    <span className="text-xs text-white/40 tracking-wider uppercase">
+                      Based in
+                    </span>
+                    <p className="text-base text-white mt-1">
+                      Istanbul, Turkey
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
       </section>
 
-      {/* Footer — About page only */}
+      {/* Footer  About page only */}
       <footer className="px-6 md:px-12 lg:px-24 pb-8">
-        {/* Shapes — placeholders for now */}
+        {/* Shapes  placeholders for now */}
         <div className="flex items-center justify-center gap-8 md:gap-16 py-16 md:py-24">
-          <div className="w-32 h-32 md:w-48 md:h-48 bg-white/10 rounded-2xl flex items-center justify-center">
-            <span className="text-[10px] text-white/30 tracking-wider">SHAPE</span>
-          </div>
-          <div className="w-32 h-32 md:w-48 md:h-48 bg-white/10 rounded-2xl flex items-center justify-center">
-            <span className="text-[10px] text-white/30 tracking-wider">SHAPE</span>
-          </div>
-          <div className="w-32 h-32 md:w-48 md:h-48 bg-white/10 rounded-2xl flex items-center justify-center">
-            <span className="text-[10px] text-white/30 tracking-wider">SHAPE</span>
-          </div>
+          <img src="/images/eye.png" alt="Eye" className="w-64 h-64 md:w-96 md:h-96 object-contain" />
+          <img src="/images/nail-clipper.png" alt="Nail Clipper" className="w-64 h-64 md:w-96 md:h-96 object-contain" />
+          <img src="/images/macbook.png" alt="Macbook" className="w-64 h-64 md:w-96 md:h-96 object-contain" />
         </div>
 
         {/* Bottom row */}
@@ -134,10 +134,10 @@ const About = () => {
             </p>
           </div>
           <div className="flex items-center gap-6">
-            <a href="#" className="text-sm text-white/50 hover:text-white transition-colors">
+            <a href="https://www.instagram.com/celiktaylan/" target="_blank" rel="noopener noreferrer" className="text-sm text-white/50 hover:text-white transition-colors">
               Instagram
             </a>
-            <a href="#" className="text-sm text-white/50 hover:text-white transition-colors">
+            <a href="https://www.linkedin.com/in/ozgur-taylan-celik/" target="_blank" rel="noopener noreferrer" className="text-sm text-white/50 hover:text-white transition-colors">
               LinkedIn
             </a>
           </div>

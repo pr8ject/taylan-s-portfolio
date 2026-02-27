@@ -16,7 +16,7 @@ const BeyondTheScreen = () => {
           <div className="flex items-center h-20 md:h-24">
             <button
               onClick={() => navigateTo("/")}
-              className="flex items-center gap-1 text-white font-bold text-base md:text-lg tracking-wide hover:opacity-70 transition-opacity"
+              className="flex items-center gap-1 text-white font-bold text-base md:text-lg tracking-wide hover:opacity-70 transition-opacity cursor-pointer"
             >
               <ChevronLeft size={20} strokeWidth={3} />
               Home
@@ -24,15 +24,6 @@ const BeyondTheScreen = () => {
           </div>
         </div>
       </nav>
-
-      {/* ===== HERO IMAGE ===== */}
-      <section className="pt-24">
-        <div className="w-full aspect-[16/7] bg-muted flex items-center justify-center">
-          <span className="text-xs text-muted-foreground tracking-[0.15em]">
-            HERO IMAGE — FIELD RESEARCH
-          </span>
-        </div>
-      </section>
 
       {/* ===== TITLE + SUBTITLE ===== */}
       <section className="px-6 md:px-12 lg:px-24 pt-16 pb-8">
@@ -293,11 +284,11 @@ const BeyondTheScreen = () => {
                 </blockquote>
               </div>
               <div>
-                <div className="aspect-[4/3] bg-muted rounded-lg flex items-center justify-center">
-                  <span className="text-xs text-muted-foreground tracking-[0.15em]">
-                    STORE VISIT PHOTO — KADIKÖY
-                  </span>
-                </div>
+                <img
+                  src="/images/beyond-the-screen/kadikoy-storefront.jpg"
+                  alt="Kadıköy Vatan Bilgisayar storefront"
+                  className="w-full aspect-[4/3] object-cover rounded-lg"
+                />
                 <p className="text-[11px] text-muted-foreground/50 mt-2 tracking-wider uppercase">
                   Kadıköy Vatan Bilgisayar storefront
                 </p>
@@ -555,13 +546,13 @@ const BeyondTheScreen = () => {
               <div className="flex gap-4 mt-4">
                 <button
                   onClick={() => navigateTo("/")}
-                  className="text-xs text-muted-foreground hover:text-foreground transition-colors uppercase tracking-wider border border-border px-4 py-2 rounded-full"
+                  className="text-xs text-muted-foreground hover:text-foreground transition-colors uppercase tracking-wider border border-border px-4 py-2 rounded-full cursor-pointer"
                 >
                   Work
                 </button>
                 <button
                   onClick={() => navigateTo("/about")}
-                  className="text-xs text-muted-foreground hover:text-foreground transition-colors uppercase tracking-wider border border-border px-4 py-2 rounded-full"
+                  className="text-xs text-muted-foreground hover:text-foreground transition-colors uppercase tracking-wider border border-border px-4 py-2 rounded-full cursor-pointer"
                 >
                   About
                 </button>
@@ -574,25 +565,25 @@ const BeyondTheScreen = () => {
               <div className="space-y-3">
                 <button
                   onClick={() => navigateTo("/trust-by-design")}
-                  className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="block text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                 >
                   Trust By Design — Workshop & CHI Paper →
                 </button>
                 <button
                   onClick={() => navigateTo("/hayvanat")}
-                  className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="block text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                 >
                   Hayvanat — Website Redesign →
                 </button>
                 <button
                   onClick={() => navigateTo("/otc-hackathon")}
-                  className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="block text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                 >
                   OTC Options Platform — AI Hackathon →
                 </button>
                 <button
                   onClick={() => navigateTo("/")}
-                  className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="block text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                 >
                   All Case Studies →
                 </button>

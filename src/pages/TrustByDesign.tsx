@@ -1,9 +1,15 @@
+import { useState } from "react";
 import { usePageTransition } from "@/components/PageTransition";
 import NdaGate from "@/components/NdaGate";
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, X } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+} from "@/components/ui/dialog";
 
 const TrustByDesign = () => {
   const { navigateTo } = usePageTransition();
+  const [zoomedImage, setZoomedImage] = useState<string | null>(null);
 
   return (
     <NdaGate>
@@ -14,7 +20,7 @@ const TrustByDesign = () => {
           <div className="flex items-center h-20 md:h-24">
             <button
               onClick={() => navigateTo("/")}
-              className="flex items-center gap-1 text-white font-bold text-base md:text-lg tracking-wide hover:opacity-70 transition-opacity"
+              className="flex items-center gap-1 text-white font-bold text-base md:text-lg tracking-wide hover:opacity-70 transition-opacity cursor-pointer"
             >
               <ChevronLeft size={20} strokeWidth={3} />
               Home
@@ -25,11 +31,11 @@ const TrustByDesign = () => {
 
       {/* ===== HERO IMAGE ===== */}
       <section className="pt-24">
-        <div className="w-full aspect-[16/7] bg-muted flex items-center justify-center">
-          <span className="text-xs text-muted-foreground tracking-[0.15em]">
-            HERO IMAGE — WORKSHOP OVERVIEW
-          </span>
-        </div>
+        <img
+          src="/images/trust-by-design/hero.png"
+          alt="Wealth Management Workshop - Value Proposition Discovery"
+          className="w-full aspect-[16/7] object-cover"
+        />
       </section>
 
       {/* ===== TITLE + SUBTITLE ===== */}
@@ -137,11 +143,11 @@ const TrustByDesign = () => {
               </p>
             </div>
             <div>
-              <div className="aspect-[4/3] bg-muted rounded-lg flex items-center justify-center">
-                <span className="text-xs text-muted-foreground tracking-[0.15em]">
-                  WORKSHOP PLANNING PHOTO
-                </span>
-              </div>
+              <img
+                src="/images/trust-by-design/onur-planning.jpg"
+                alt="Planning sessions with Onur Yılmaz"
+                className="w-full aspect-[4/3] object-cover object-top rounded-lg"
+              />
               <p className="text-[11px] text-muted-foreground/50 mt-2 tracking-wider uppercase">
                 Planning sessions with Onur Yılmaz
               </p>
@@ -172,16 +178,6 @@ const TrustByDesign = () => {
                 </p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   Each persona could engage in realistic dialogue about investment preferences, risk tolerance, and advisor relationships. The organization showed some <strong className="text-foreground">resistance to AI persona adoption</strong>, a tension that would later become the central thread of our research.
-                </p>
-              </div>
-              <div>
-                <div className="aspect-[4/3] bg-muted rounded-lg flex items-center justify-center">
-                  <span className="text-xs text-muted-foreground tracking-[0.15em]">
-                    AI PERSONA CARD (REDACTED)
-                  </span>
-                </div>
-                <p className="text-[11px] text-muted-foreground/50 mt-2 tracking-wider uppercase">
-                  CustomGPT persona configuration
                 </p>
               </div>
             </div>
@@ -220,11 +216,11 @@ const TrustByDesign = () => {
                   <p className="text-xs font-bold text-foreground uppercase tracking-wider mb-2">Q5 — Emotion Moments</p>
                   <p className="text-sm text-muted-foreground">Maps to <strong className="text-foreground">Feels</strong></p>
                 </div>
-                <div className="aspect-[4/3] bg-muted rounded-lg flex items-center justify-center">
-                  <span className="text-xs text-muted-foreground tracking-[0.15em]">
-                    INTERVIEW FRAMEWORK VISUAL
-                  </span>
-                </div>
+                <img
+                  src="/images/trust-by-design/interview-protocol.jpg"
+                  alt="Interview Protocol - Empathy Map Framework"
+                  className="w-full aspect-[4/3] object-cover rounded-lg"
+                />
               </div>
             </div>
           </div>
@@ -261,32 +257,35 @@ const TrustByDesign = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
               <div>
-                <div className="aspect-[4/3] bg-muted rounded-lg flex items-center justify-center">
-                  <span className="text-xs text-muted-foreground tracking-[0.15em]">
-                    WORKSHOP PHOTO — EMPATHY MAPS
-                  </span>
-                </div>
+                <img
+                  src="/images/trust-by-design/journey-maps.jpg"
+                  alt="Journey Maps from the Workshop"
+                  className="w-full aspect-[4/3] object-contain rounded-lg bg-muted cursor-pointer hover:opacity-80 transition-opacity"
+                  onClick={() => setZoomedImage("/images/trust-by-design/journey-maps.jpg")}
+                />
                 <p className="text-[11px] text-muted-foreground/50 mt-2 tracking-wider uppercase">
-                  Physical empathy maps from the workshop
+                  Physical journey maps from the workshop
                 </p>
               </div>
               <div>
-                <div className="aspect-[4/3] bg-muted rounded-lg flex items-center justify-center">
-                  <span className="text-xs text-muted-foreground tracking-[0.15em]">
-                    WORKSHOP PHOTO — INVESTMENT EXERCISE
-                  </span>
-                </div>
+                <img
+                  src="/images/trust-by-design/investment-money.jpg"
+                  alt="The 'investment money' designed for the exercise"
+                  className="w-full aspect-[16/9] object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity"
+                  onClick={() => setZoomedImage("/images/trust-by-design/investment-money.jpg")}
+                />
                 <p className="text-[11px] text-muted-foreground/50 mt-2 tracking-wider uppercase">
                   The "investment money" designed for the exercise
                 </p>
               </div>
             </div>
 
-            <div className="aspect-[16/9] bg-muted rounded-lg flex items-center justify-center mb-2">
-              <span className="text-xs text-muted-foreground tracking-[0.15em]">
-                WORKSHOP PHOTO — GROUP PROTOTYPING SESSION
-              </span>
-            </div>
+            <img
+              src="/images/trust-by-design/prototyping-session.jpg"
+              alt="Facilitating groups through AI-assisted prototyping"
+              className="w-full aspect-[16/9] object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity mb-2"
+              onClick={() => setZoomedImage("/images/trust-by-design/prototyping-session.jpg")}
+            />
             <p className="text-[11px] text-muted-foreground/50 mt-2 tracking-wider uppercase">
               Facilitating groups through AI-assisted prototyping
             </p>
@@ -356,11 +355,12 @@ const TrustByDesign = () => {
             </p>
           </blockquote>
 
-          <div className="aspect-[16/9] bg-muted rounded-lg flex items-center justify-center mb-2">
-            <span className="text-xs text-muted-foreground tracking-[0.15em]">
-              DIAGRAM — "WHAT WE EXPECTED TO LEARN" VS. "WHAT WE ACTUALLY LEARNED"
-            </span>
-          </div>
+          <img
+            src="/images/trust-by-design/bias-gap-diagram.png"
+            alt="The gap between expected and actual insights"
+            className="w-full aspect-[16/9] object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity mb-2"
+            onClick={() => setZoomedImage("/images/trust-by-design/bias-gap-diagram.png")}
+          />
           <p className="text-[11px] text-muted-foreground/50 mt-2 tracking-wider uppercase">
             The gap between expected and actual insights
           </p>
@@ -383,7 +383,7 @@ const TrustByDesign = () => {
                 Together with Ilgın Şafak, I analyzed why this happened. We moved beyond the simple <strong className="text-foreground">"AI vs. Human"</strong> framing to understand which biases each approach introduces.
               </p>
               <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                Our key realization: AI personas aren't unbiased. They have <strong className="text-foreground">different biases</strong> (training data, sycophancy, hallucination). But they <strong className="text-foreground">can't be influenced by stakeholder presence, hospitality, or relationship pressure</strong>.
+                Our key realization: AI personas aren't unbiased. They have <strong className="text-foreground">specific, predictable biases</strong> (training data limitations, sycophancy, hallucination). But critically, <strong className="text-foreground">their biases are easier to identify and mitigate</strong> because they're not subject to contextual pressures—they can't be influenced by stakeholder presence, hospitality, or relationship dynamics.
               </p>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 This thinking became a <strong className="text-foreground">position paper submitted to and accepted at CHI 2026</strong>, the premier international conference on Human-Computer Interaction.
@@ -393,9 +393,13 @@ const TrustByDesign = () => {
               <h3 className="text-sm font-bold text-foreground uppercase tracking-widest mb-4">
                 Bias Comparison
               </h3>
+              <p className="text-xs text-muted-foreground mb-4 italic">
+                The key difference: human biases are <strong className="text-foreground">hard to control</strong>, while AI biases are <strong className="text-foreground">easier to identify and mitigate</strong>.
+              </p>
               <div className="space-y-4">
                 <div className="p-4 border border-border rounded-lg">
                   <p className="text-xs font-bold text-foreground uppercase tracking-wider mb-2">Human Participant Biases</p>
+                  <p className="text-xs text-muted-foreground mb-3">(Hard to control—triggered by context)</p>
                   <ul className="text-sm text-muted-foreground space-y-1">
                     <li>Social desirability</li>
                     <li>Context effects</li>
@@ -406,6 +410,7 @@ const TrustByDesign = () => {
                 </div>
                 <div className="p-4 border border-border rounded-lg">
                   <p className="text-xs font-bold text-foreground uppercase tracking-wider mb-2">AI Persona Biases</p>
+                  <p className="text-xs text-muted-foreground mb-3">(Easier to mitigate—systematic and predictable)</p>
                   <ul className="text-sm text-muted-foreground space-y-1">
                     <li>Training data limitations</li>
                     <li>Sycophancy tendencies</li>
@@ -496,13 +501,13 @@ const TrustByDesign = () => {
               <div className="flex gap-4 mt-4">
                 <button
                   onClick={() => navigateTo("/")}
-                  className="text-xs text-muted-foreground hover:text-foreground transition-colors uppercase tracking-wider border border-border px-4 py-2 rounded-full"
+                  className="text-xs text-muted-foreground hover:text-foreground transition-colors uppercase tracking-wider border border-border px-4 py-2 rounded-full cursor-pointer"
                 >
                   Work
                 </button>
                 <button
                   onClick={() => navigateTo("/about")}
-                  className="text-xs text-muted-foreground hover:text-foreground transition-colors uppercase tracking-wider border border-border px-4 py-2 rounded-full"
+                  className="text-xs text-muted-foreground hover:text-foreground transition-colors uppercase tracking-wider border border-border px-4 py-2 rounded-full cursor-pointer"
                 >
                   About
                 </button>
@@ -515,25 +520,25 @@ const TrustByDesign = () => {
               <div className="space-y-3">
                 <button
                   onClick={() => navigateTo("/beyond-the-screen")}
-                  className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="block text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                 >
                   Beyond The Screen — Field Research →
                 </button>
                 <button
                   onClick={() => navigateTo("/hayvanat")}
-                  className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="block text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                 >
                   Hayvanat — Website Redesign →
                 </button>
                 <button
                   onClick={() => navigateTo("/otc-hackathon")}
-                  className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="block text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                 >
                   OTC Options Platform — AI Hackathon →
                 </button>
                 <button
                   onClick={() => navigateTo("/")}
-                  className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="block text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                 >
                   All Case Studies →
                 </button>
@@ -543,6 +548,25 @@ const TrustByDesign = () => {
         </div>
       </section>
     </div>
+
+      {/* Zoom Modal */}
+      <Dialog open={!!zoomedImage} onOpenChange={(open) => !open && setZoomedImage(null)}>
+        <DialogContent className="max-w-5xl w-full bg-black border-0 max-h-[90vh] flex flex-col">
+          <button
+            onClick={() => setZoomedImage(null)}
+            className="absolute top-4 right-4 z-50 text-white hover:opacity-70 transition-opacity"
+          >
+            <X size={24} />
+          </button>
+          <div className="flex-1 overflow-y-auto flex items-start justify-center">
+            <img
+              src={zoomedImage || ""}
+              alt="Zoomed view"
+              className="w-full h-auto object-cover object-top"
+            />
+          </div>
+        </DialogContent>
+      </Dialog>
     </NdaGate>
   );
 };
