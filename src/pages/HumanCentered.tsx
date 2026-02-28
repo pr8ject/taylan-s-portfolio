@@ -226,11 +226,50 @@ const HumanCentered = () => {
         </div>
       </section>
 
-      {/* ===== SECTION 3 — REFLECTION ===== */}
+      {/* ===== SECTION 3 — AFFINITY MAPPING ===== */}
+      <section className="px-6 md:px-12 lg:px-24 pt-20 pb-12">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-black text-foreground uppercase tracking-tight mb-6">
+            03 — Affinity Mapping
+          </h2>
+          <p className="text-lg md:text-xl text-muted-foreground mb-16">
+            "From Raw Notes to Shared Understanding"
+          </p>
+
+          <p className="text-sm text-muted-foreground leading-relaxed mb-12">
+            After the field visits and user calls, we clustered all observations into <strong className="text-foreground">affinity maps</strong> as a team. These boards became our single source of truth — grouping raw sticky notes into themes like quick access needs, flexibility expectations, communication preferences, and digitalization gaps.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <img
+                src="/images/human-centered/affinity-map-1.png"
+                alt="Affinity mapping board with clustered sticky notes showing themes like quick access, flexibility, communication needs, and omni-channel expectations"
+                className="w-full rounded-lg border border-border"
+              />
+              <p className="text-[11px] text-muted-foreground/50 mt-2 tracking-wider uppercase">
+                Workshop affinity board — thematic clustering
+              </p>
+            </div>
+            <div>
+              <img
+                src="/images/human-centered/affinity-map-2.png"
+                alt="Team A summary affinity map with categories including notification chaos, credit usage habits, sense of control, flexibility, and payment tools"
+                className="w-full rounded-lg border border-border"
+              />
+              <p className="text-[11px] text-muted-foreground/50 mt-2 tracking-wider uppercase">
+                Team A summary — affinity mapping synthesis
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== SECTION 4 — REFLECTION ===== */}
       <section className="px-6 md:px-12 lg:px-24 pt-20 pb-24">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-black text-foreground uppercase tracking-tight mb-6">
-            03 — Reflection
+            04 — Reflection
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground mb-16">
             "What This Project Taught Me"
