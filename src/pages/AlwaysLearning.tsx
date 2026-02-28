@@ -68,6 +68,14 @@ const certificates: Certificate[] = [
     image: "/images/certificates/ibm-design-thinking.png",
     verifyUrl: "https://www.credly.com/badges/350e2524-5ca0-4838-af47-5e8cf4f0b3eb/linked_in_profile",
   },
+  {
+    title: "McKinsey Forward Program",
+    issuer: "McKinsey & Company",
+    date: "July 2024",
+    description: "Developed practical skills for the future of work including the McKinsey approach to problem-solving, effective communication, and building adaptable and resilient mindsets.",
+    image: "/images/certificates/mckinsey-forward.png",
+    verifyUrl: "https://www.credly.com/badges/ae26896f-0da0-421f-8d29-a8770add2cbf",
+  },
 ];
 
 const AlwaysLearning = () => {
