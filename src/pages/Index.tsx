@@ -142,9 +142,9 @@ const HeroSection = () => (
 
 // ─── MOBILE: Two-panel snap layout (wendyandrade.co style) ───
 // Top titles and bottom projects alternate on each swipe
-const mobileTopSlots = [
-  "Experience\nIs Everything.",
-  ...projects.filter((p) => p.type === "title").map((p) => p.title),
+const mobileTopSlots: { title: string; projectId: number | null; link: string | null; category: string | null }[] = [
+  { title: "Experience\nIs Everything.", projectId: null, link: null, category: null },
+  ...projects.filter((p) => p.type === "title").map((p) => ({ title: p.title, projectId: p.id, link: p.link, category: p.category })),
 ];
 
 const mobileBottomSlots = projects.filter((p) => p.type === "image");
@@ -190,7 +190,8 @@ const MobileSnapLayout = ({
   const DRAG_THRESHOLD = 100; // px to reach full fade-out & commit
 
   const currentStep = mobileSteps[step];
-  const topTitle = mobileTopSlots[currentStep.topIdx];
+  const topSlot = mobileTopSlots[currentStep.topIdx];
+  const topImages = topSlot.projectId !== null ? hoverImages[topSlot.projectId] : undefined;
   const bottomItem = mobileBottomSlots[currentStep.bottomIdx];
 
   // Figure out which panel changes for a given direction
@@ -300,14 +301,38 @@ const MobileSnapLayout = ({
       className="fixed inset-0 flex flex-col"
       style={{ touchAction: "none", overscrollBehavior: "none" }}
     >
-      {/* ─── TOP PANEL: Big title ─── */}
-      <div className="flex-1 flex items-center justify-center px-8 overflow-hidden">
-        <h1
-          className="font-display text-[42px] font-black text-foreground leading-[0.88] tracking-[-0.03em] text-center whitespace-pre-line"
+      {/* ─── TOP PANEL: Big title + thumbnail ─── */}
+      <div
+        className="flex-1 flex items-center justify-center px-8 overflow-hidden"
+        onClick={() => topSlot.link && onNavigate(topSlot.link)}
+      >
+        <div
+          className="flex flex-col items-center"
           style={{ opacity: topOpacity, transition: transitionStyle }}
         >
-          {topTitle}
-        </h1>
+          <h1
+            className="font-display text-[42px] font-black text-foreground leading-[0.88] tracking-[-0.03em] text-center whitespace-pre-line"
+          >
+            {topSlot.title}
+          </h1>
+          {topImages && topImages.length > 0 && (
+            <img
+              src={topImages[0]}
+              alt={topSlot.title}
+              className="w-48 h-36 object-cover rounded-sm mt-5"
+            />
+          )}
+          {topSlot.category && (
+            <span className="block text-[11px] text-muted-foreground tracking-[0.12em] uppercase mt-3 text-center">
+              {topSlot.category}
+            </span>
+          )}
+          {topSlot.link && (
+            <span className="text-[11px] text-muted-foreground tracking-[0.12em] uppercase mt-2">
+              View →
+            </span>
+          )}
+        </div>
       </div>
 
       {/* ─── NAME BAR: Fixed middle ─── */}
