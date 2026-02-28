@@ -79,7 +79,7 @@ const certificates: Certificate[] = [
   {
     title: "How to Design for the Human Mind: Cognitive Science for UX",
     issuer: "Interaction Design Foundation (IxDF)",
-    date: "2025",
+    date: "2024",
     description: "Master Class on applying cognitive science principles to UX design, understanding how the human mind processes information and makes decisions.",
     image: "/images/certificates/ixdf-cognitive-science-ux.png",
     verifyUrl: "https://www.interaction-design.org/members/ozgur-taylan-celik/certificate/masterclass/mcc_17d3f9b63f5a4fc0a84494c3a1e2971f",
