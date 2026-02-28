@@ -44,6 +44,14 @@ const certificates: Certificate[] = [
     image: "/images/certificates/ixdf-ai-agents-healthcare.png",
     verifyUrl: "https://www.interaction-design.org/members/ozgur-taylan-celik/certificate/masterclass/mcc_81647da2a2f1426895af5388dbcf72e4",
   },
+  {
+    title: "Personas and User Research: Design Products and Services People Need and Want",
+    issuer: "Interaction Design Foundation (IxDF)",
+    date: "2025",
+    description: "Top 10% Distinction. Mastery in creating effective design personas based on real user research, conducting qualitative research, applying grounded theory principles, and using affinity diagramming to develop actionable personas.",
+    image: "/images/certificates/ixdf-personas-user-research.png",
+    verifyUrl: "https://www.interaction-design.org/members/ozgur-taylan-celik/certificate/course/0167bcc0-81ad-416d-ba65-7fe2c7246739",
+  },
 ];
 
 const AlwaysLearning = () => {
