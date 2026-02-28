@@ -99,7 +99,7 @@ const Navigation = () => {
               )}
             >
               <img
-                src="/images/profile.png"
+                src="/images/profile-cutout.png"
                 alt="Özgür Taylan Çelik"
                 className="w-full h-full object-cover"
               />
