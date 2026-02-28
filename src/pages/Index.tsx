@@ -41,6 +41,11 @@ const hoverImages: Record<number, string[]> = {
     "/images/beyond-the-screen/carousel-2.jpg",
     "/images/beyond-the-screen/carousel-3.jpg",
   ],
+  9: [
+    "/images/human-centered/workshop-1.jpg",
+    "/images/human-centered/affinity-board.png",
+    "/images/human-centered/workshop-2.jpg",
+  ],
 };
 
 projects.forEach((p) => {
