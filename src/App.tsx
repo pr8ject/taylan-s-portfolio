@@ -15,6 +15,7 @@ import TrustByDesign from "./pages/TrustByDesign";
 import BeyondTheScreen from "./pages/BeyondTheScreen";
 import Searcho from "./pages/Searcho";
 import HumanCentered from "./pages/HumanCentered";
+import AlwaysLearning from "./pages/AlwaysLearning";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -37,6 +38,7 @@ const App = () => (
             <Route path="/beyond-the-screen" element={<BeyondTheScreen />} />
             <Route path="/searcho" element={<Searcho />} />
             <Route path="/human-centered" element={<HumanCentered />} />
+            <Route path="/always-learning" element={<AlwaysLearning />} />
             <Route path="/contact" element={<Contact />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
