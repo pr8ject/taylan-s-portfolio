@@ -4,27 +4,21 @@ import { usePageTransition } from "@/components/PageTransition";
 // Project data — mix of typographic titles and image cards
 const projects = [
   { id: 1, title: "Beyond\nThe Screen.", category: "Service Design, UX Research", type: "title" as const, link: "/beyond-the-screen", image: "" },
-  { id: 2, title: "Mobile Banking", category: "User Research, 2024", type: "image" as const, link: "", image: "" },
   { id: 3, title: "Hayvanât", category: "Website Redesign, UX Research", type: "image" as const, link: "/hayvanat", image: "/images/hayvanat/hayvanat-web.png" },
   { id: 4, title: "Searcho", category: "AI-Native customer researcher", type: "image" as const, link: "/searcho", image: "/images/searcho/hero.png" },
   { id: 5, title: "Trust By\nDesign.", category: "UX Strategy", type: "title" as const, link: "/trust-by-design", image: "" },
-  { id: 6, title: "Design Systems", category: "Product Design, 2023", type: "image" as const, link: "", image: "" },
-  { id: 7, title: "Redefining\nFinance.", category: "Fintech UX", type: "title" as const, link: "", image: "" },
-  { id: 8, title: "Payment Flow", category: "UX Research, 2023", type: "image" as const, link: "", image: "" },
   { id: 9, title: "Human\nCentered.", category: "Design Thinking", type: "title" as const, link: "/human-centered", image: "" },
   { id: 10, title: "OTC Options Platform", category: "AI Hackathon, Jury Special Prize", type: "image" as const, link: "/otc-hackathon", image: "/images/otc-hackathon/thumbnail.png" },
   { id: 11, title: "Always\nLearning.", category: "Personal Growth", type: "title" as const, link: "", image: "" },
-  { id: 12, title: "Accessibility", category: "Inclusive Design, 2023", type: "image" as const, link: "", image: "" },
 ];
 
 // Asymmetric layout for desktop: items by project index + grid column placement (12-col grid)
 const layoutRows: { idx: number; col: string; align?: string }[][] = [
   [{ idx: 0, col: "4 / 10" }],
-  [{ idx: 1, col: "1 / 4" }, { idx: 2, col: "6 / 9" }, { idx: 3, col: "10 / 13" }],
-  [{ idx: 4, col: "5 / 12", align: "end" }],
-  [{ idx: 5, col: "1 / 4" }, { idx: 6, col: "7 / 13" }],
-  [{ idx: 7, col: "1 / 4" }, { idx: 8, col: "4 / 9" }, { idx: 9, col: "10 / 13" }],
-  [{ idx: 10, col: "2 / 7" }, { idx: 11, col: "10 / 13" }],
+  [{ idx: 1, col: "1 / 5" }, { idx: 2, col: "9 / 13" }],
+  [{ idx: 3, col: "5 / 12", align: "end" }],
+  [{ idx: 4, col: "2 / 7" }, { idx: 5, col: "9 / 13" }],
+  [{ idx: 6, col: "4 / 10" }],
 ];
 
 // Hover images: slideshows or single hero images per project id
