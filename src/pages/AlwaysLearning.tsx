@@ -25,7 +25,8 @@ const certificates: Certificate[] = [
     issuer: "UC San Diego / Coursera",
     date: "2023",
     description: "Deep dive into interaction design principles, information architecture, and user-centered design processes.",
-    verifyUrl: "",
+    image: "/images/certificates/nngroup-certificate.png",
+    verifyUrl: "https://www.credential.net/124892631",
   },
   {
     title: "Design Thinking Certificate",
