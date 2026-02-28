@@ -1,65 +1,31 @@
 
 
-## TAYLAN Portfolio - Minimalist Landing Page
+# Redesign the Always Learning Page
 
-A bold, editorial-style portfolio website inspired by Workoholics, featuring dramatic typography and maximum whitespace.
+The current timeline layout with large grey cards feels heavy and out of place compared to the rest of the portfolio's minimalist editorial style. Here's a cleaner approach:
 
----
+## New Layout: Clean Grid Cards
 
-### 🏠 Landing Page (Hero Section)
+Replace the timeline layout with a simpler, more elegant design:
 
-**Navigation Bar**
-- Sticky top navigation with clean, thin uppercase links: WORK | RESEARCH | ABOUT | CONTACT
-- Underline hover animation that slides in from left
-- Syne font family throughout
+- **Remove the vertical timeline** (line + dots) -- it adds visual clutter
+- **Use a clean stacked card layout** with more breathing room
+- For certificates **with images**: show a clean white card with the certificate image at a moderate size (max-w-xs), clickable to verify
+- For certificates **without images**: show a minimal text-only card with just the details
+- **Smaller image presentation**: constrain certificate images to ~320px max width so they look crisp, not stretched
+- **White/clean background** for the image area instead of the grey `bg-muted/30` which makes it look dull
+- Add a subtle **drop shadow** on the certificate image itself to make it feel like a real document sitting on the page
+- Keep the card border minimal -- just a thin bottom border separator between entries rather than full bordered cards
 
-**Hero Content**
-- Small intro paragraph in gray describing your UX Research focus
-- Massive "TAYLAN" text (200px desktop, 80px mobile) - the visual anchor
-- Subtle tagline below with the "For today's users..." line
-- Floating project preview card in the top-right corner showing a case study teaser
+## Specific Changes (1 file)
 
-**Design Details**
-- Pure white background with 80vh hero section
-- Tight letter-spacing on the hero text for that editorial feel
-- Smooth scroll behavior throughout
-
----
-
-### 📄 Additional Pages (with placeholder content)
-
-**Work Page**
-- Grid layout for case study thumbnails
-- Placeholder project cards ready to be filled in
-
-**Research Page**
-- Clean layout for research articles/insights
-- Placeholder sections for your methodologies and findings
-
-**About Page**
-- Personal bio section
-- Skills/experience overview
-- Photo placeholder area
-
-**Contact Page**
-- Simple contact information display
-- Optional: email link or contact form
-
----
-
-### ✨ Interactions & Polish
-
-- Navigation underline animations on hover
-- Smooth page transitions between routes
-- Fully responsive design that gracefully scales the massive typography
-- Syne font loaded from Google Fonts
-
----
-
-### 📱 Mobile Experience
-
-- Hero text scales down to 80px
-- Navigation adapts for mobile (hamburger menu or simplified layout)
-- Floating project card repositions or hides on smaller screens
-- Touch-friendly tap targets
+**`src/pages/AlwaysLearning.tsx`**:
+- Remove the timeline vertical line and dot elements
+- Remove `pl-12 md:pl-20` offset padding
+- Redesign each certificate entry as a clean horizontal layout on desktop (image left, text right) and stacked on mobile
+- Certificate image gets a subtle `shadow-lg` and `rounded` treatment to look like a real document
+- Image max width capped at `max-w-xs` (320px) for crisp rendering
+- Wrap images in clickable `<a>` tags linking to `verifyUrl`
+- Add `gap-16` between entries for generous whitespace (matching portfolio's editorial feel)
+- For placeholder certificates without images, show a clean text-only row with issuer/title/description
 
