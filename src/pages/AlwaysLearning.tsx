@@ -13,10 +13,11 @@ interface Certificate {
 // Placeholder data — replace with your real certificates
 const certificates: Certificate[] = [
   {
-    title: "Google UX Design Professional Certificate",
-    issuer: "Google / Coursera",
-    date: "2024",
-    description: "Comprehensive UX design program covering research, wireframing, prototyping, and usability testing.",
+    title: "UX Research Qualification",
+    issuer: "Nielsen Norman Group",
+    date: "January 2026",
+    description: "University credit-rated qualification in User Research demonstrating mastery in understanding user needs, formulating research plans, extracting insights, and driving actionable outcomes through user-centric methodologies.",
+    image: "/images/certificates/nngroup-certificate.png",
     verifyUrl: "",
   },
   {
