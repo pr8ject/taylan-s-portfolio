@@ -14,7 +14,7 @@ interface Certificate {
 const certificates: Certificate[] = [
   {
     title: "UX Research Qualification",
-    issuer: "Nielsen Norman Group",
+    issuer: "UXDI",
     date: "January 2026",
     description: "University credit-rated qualification in User Research demonstrating mastery in understanding user needs, formulating research plans, extracting insights, and driving actionable outcomes through user-centric methodologies.",
     image: "/images/certificates/nngroup-certificate.png",
@@ -96,11 +96,13 @@ const AlwaysLearning = () => {
                 <div className="bg-card border border-border rounded-lg overflow-hidden">
                   {/* Certificate image area */}
                   {cert.image ? (
-                    <img
-                      src={cert.image}
-                      alt={cert.title}
-                      className="w-full aspect-[16/9] object-cover"
-                    />
+                    <div className="w-full bg-muted/30 p-4">
+                      <img
+                        src={cert.image}
+                        alt={cert.title}
+                        className="w-full object-contain"
+                      />
+                    </div>
                   ) : (
                     <div className="w-full aspect-[16/9] bg-muted flex items-center justify-center">
                       <span className="font-display text-xs text-muted-foreground tracking-[0.15em] uppercase">
