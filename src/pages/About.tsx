@@ -119,9 +119,9 @@ const About = () => {
       <footer className="px-6 md:px-12 lg:px-24 pb-8">
         {/* Shapes  placeholders for now */}
         <div className="flex items-center justify-center gap-8 md:gap-16 py-16 md:py-24">
-          <img src="/images/eye.png" alt="Eye" className="w-64 h-64 md:w-96 md:h-96 object-contain" />
-          <img src="/images/nail-clipper.png" alt="Nail Clipper" className="w-64 h-64 md:w-96 md:h-96 object-contain" />
-          <img src="/images/macbook.png" alt="Macbook" className="w-64 h-64 md:w-96 md:h-96 object-contain" />
+          <img alt="Eye" className="w-64 h-64 md:w-96 md:h-96 object-contain" src="/lovable-uploads/d589daad-ae47-425d-bbf8-06e76de175bd.png" />
+          <img alt="Nail Clipper" className="w-64 h-64 md:w-96 md:h-96 object-contain" src="/lovable-uploads/ac12a5c5-4a6f-425a-ac1a-6161769a6327.png" />
+          <img alt="Macbook" className="w-64 h-64 md:w-96 md:h-96 object-contain" src="/lovable-uploads/03c6eab7-7d92-4bca-86d9-b22ddc921c3b.png" />
         </div>
 
         {/* Bottom row */}
