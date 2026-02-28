@@ -11,7 +11,7 @@ const projects = [
   { id: 6, title: "Design Systems", category: "Product Design, 2023", type: "image" as const, link: "", image: "" },
   { id: 7, title: "Beyond\nThe Screen.", category: "Service Design, UX Research", type: "title" as const, link: "/beyond-the-screen", image: "" },
   { id: 8, title: "Payment Flow", category: "UX Research, 2023", type: "image" as const, link: "", image: "" },
-  { id: 9, title: "Human\nCentered.", category: "Design Thinking", type: "title" as const, link: "", image: "" },
+  { id: 9, title: "Human\nCentered.", category: "Design Thinking", type: "title" as const, link: "/human-centered", image: "" },
   { id: 10, title: "OTC Options Platform", category: "AI Hackathon, Jury Special Prize", type: "image" as const, link: "/otc-hackathon", image: "/images/otc-hackathon/thumbnail.png" },
   { id: 11, title: "Always\nLearning.", category: "Personal Growth", type: "title" as const, link: "", image: "" },
   { id: 12, title: "Accessibility", category: "Inclusive Design, 2023", type: "image" as const, link: "", image: "" },
