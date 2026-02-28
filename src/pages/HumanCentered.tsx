@@ -138,6 +138,18 @@ const HumanCentered = () => {
             </div>
           </div>
 
+          {/* Workshop photo */}
+          <div className="mb-12">
+            <img
+              src="/images/human-centered/workshop-presentation.jpg"
+              alt="Leading the design workshop — presenting research findings to the team"
+              className="w-full rounded-lg border border-border"
+            />
+            <p className="text-[11px] text-muted-foreground/50 mt-2 tracking-wider uppercase">
+              Presenting research findings during the design workshop
+            </p>
+          </div>
+
           <div className="p-6 bg-muted/30 rounded-lg border border-border">
             <h3 className="text-sm font-bold text-foreground uppercase tracking-widest mb-3">
               Why This Matters
