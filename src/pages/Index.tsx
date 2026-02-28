@@ -9,7 +9,7 @@ const projects = [
   { id: 4, title: "Searcho", category: "AI-Native customer researcher", type: "image" as const, link: "/searcho", image: "/images/searcho/hero.png" },
   { id: 5, title: "Trust By\nDesign.", category: "UX Strategy", type: "title" as const, link: "/trust-by-design", image: "" },
   { id: 6, title: "Design Systems", category: "Product Design, 2023", type: "image" as const, link: "", image: "" },
-  { id: 7, title: "Beyond\nThe Screen.", category: "Service Design, UX Research", type: "title" as const, link: "/beyond-the-screen", image: "" },
+  { id: 7, title: "Redefining\nFinance.", category: "Service Design, UX Research", type: "title" as const, link: "/beyond-the-screen", image: "" },
   { id: 8, title: "Payment Flow", category: "UX Research, 2023", type: "image" as const, link: "", image: "" },
   { id: 9, title: "Human\nCentered.", category: "Design Thinking", type: "title" as const, link: "/human-centered", image: "" },
   { id: 10, title: "OTC Options Platform", category: "AI Hackathon, Jury Special Prize", type: "image" as const, link: "/otc-hackathon", image: "/images/otc-hackathon/thumbnail.png" },
