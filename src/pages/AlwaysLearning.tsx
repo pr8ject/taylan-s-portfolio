@@ -60,6 +60,14 @@ const certificates: Certificate[] = [
     image: "/images/certificates/uxcel-ux-research.png",
     verifyUrl: "https://app.uxcel.com/certificates/084YS2CKHUXA",
   },
+  {
+    title: "Enterprise Design Thinking Practitioner",
+    issuer: "IBM",
+    date: "January 2025",
+    description: "Foundational credential in applying Enterprise Design Thinking, covering empathy, ideation, and user-centered design in everyday practice.",
+    image: "/images/certificates/ibm-design-thinking.png",
+    verifyUrl: "https://www.credly.com/badges/350e2524-5ca0-4838-af47-5e8cf4f0b3eb/linked_in_profile",
+  },
 ];
 
 const AlwaysLearning = () => {
