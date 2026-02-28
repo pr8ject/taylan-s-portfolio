@@ -14,7 +14,7 @@ interface Certificate {
 const certificates: Certificate[] = [
   {
     title: "Professional Certificate in User Research",
-    issuer: "UX Design Institute",
+    issuer: "Glasgow Caledonian University via UXDI",
     date: "January 2026",
     description: "University credit-rated qualification in User Research demonstrating mastery in understanding user needs, formulating research plans, extracting insights, and driving actionable outcomes through user-centric methodologies. SCQF credit-rated by Glasgow Caledonian University.",
     image: "/images/certificates/uxdi-user-research.png",
