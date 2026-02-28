@@ -80,7 +80,7 @@ const HoverImage = ({
       style={{
         left: mousePos.x + 16,
         top: mousePos.y - 80,
-        opacity: visible ? 1 : 0,
+        opacity: visible && images ? 1 : 0,
         transform: visible ? "scale(1)" : "scale(0.9)",
       }}
     >
