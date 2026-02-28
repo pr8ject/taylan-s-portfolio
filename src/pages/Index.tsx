@@ -95,9 +95,7 @@ const HoverImage = ({
               style={{ opacity: i === slideIndex ? 1 : 0 }}
             />
           ))}
-          <div className="absolute inset-0 w-full h-full bg-muted flex items-center justify-center -z-10">
-            <span className="text-xs text-muted-foreground tracking-[0.15em]">CASE STUDY</span>
-          </div>
+          <div className="absolute inset-0 w-full h-full bg-muted -z-10" />
         </div>
       ) : (
         <div className="w-full h-full bg-muted flex items-center justify-center">
