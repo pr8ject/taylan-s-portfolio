@@ -13,10 +13,10 @@ const About = () => {
             <div className="lg:col-span-1">
               <div className="aspect-[3/4] bg-white/10 rounded-lg overflow-hidden">
                 <img
-                  src="/images/about-photo.jpg"
+
                   alt="Özgür Taylan Çelik"
-                  className="w-full h-full object-cover"
-                />
+                  className="w-full h-full object-cover" src="/lovable-uploads/91489500-6266-441b-b41b-099c28b8998b.jpg" />
+
               </div>
             </div>
 
@@ -41,21 +41,21 @@ const About = () => {
                 </h3>
                 <div className="flex flex-wrap gap-3">
                   {[
-                    "Product Discovery",
-                    "UX Research",
-                    "Stakeholder Workshops",
-                    "Product Design",
-                    "Usability Testing",
-                    "Design Thinking",
-                    "Prototyping",
-                  ].map((skill) => (
-                    <span
-                      key={skill}
-                      className="text-sm text-white/70 px-4 py-2 border border-white/20 rounded-full"
-                    >
+                  "Product Discovery",
+                  "UX Research",
+                  "Stakeholder Workshops",
+                  "Product Design",
+                  "Usability Testing",
+                  "Design Thinking",
+                  "Prototyping"].
+                  map((skill) =>
+                  <span
+                    key={skill}
+                    className="text-sm text-white/70 px-4 py-2 border border-white/20 rounded-full">
+
                       {skill}
                     </span>
-                  ))}
+                  )}
                 </div>
               </div>
 
@@ -95,8 +95,8 @@ const About = () => {
                       href="https://www.linkedin.com/in/ozgur-taylan-celik/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 text-white/70 hover:text-white transition-colors"
-                    >
+                      className="flex items-center gap-3 text-white/70 hover:text-white transition-colors">
+
                       <span className="text-base">LinkedIn</span>
                     </a>
                   </div>
@@ -143,8 +143,8 @@ const About = () => {
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>);
+
 };
 
 export default About;
