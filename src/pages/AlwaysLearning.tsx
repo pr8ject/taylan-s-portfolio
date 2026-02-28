@@ -100,7 +100,7 @@ const AlwaysLearning = () => {
                       href={cert.verifyUrl || "#"}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex justify-center bg-muted/30 p-6 cursor-pointer hover:bg-muted/50 transition-colors"
+                      className="flex justify-center p-6 cursor-pointer hover:opacity-80 transition-opacity"
                     >
                       <img
                         src={cert.image}
