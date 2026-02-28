@@ -29,11 +29,12 @@ const certificates: Certificate[] = [
     verifyUrl: "https://www.credential.net/124892631",
   },
   {
-    title: "Design Thinking Certificate",
-    issuer: "IDEO U",
-    date: "2023",
-    description: "Human-centered design methodology training focused on empathy, ideation, and rapid prototyping.",
-    verifyUrl: "",
+    title: "Conversation Design: Practical Tips for AI Design",
+    issuer: "Interaction Design Foundation (IxDF)",
+    date: "2025",
+    description: "Master Class on designing conversational AI experiences, covering practical approaches to conversation design and AI-driven interactions.",
+    image: "/images/certificates/ixdf-conversation-design.png",
+    verifyUrl: "https://www.interaction-design.org/members/ozgur-taylan-celik/certificate/masterclass/mcc_5d72290bf2444fe6a1cc1e772d2fa629",
   },
   {
     title: "Service Design Fundamentals",
