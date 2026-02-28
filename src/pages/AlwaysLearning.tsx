@@ -13,12 +13,12 @@ interface Certificate {
 // Placeholder data — replace with your real certificates
 const certificates: Certificate[] = [
   {
-    title: "UX Research Qualification",
-    issuer: "UXDI",
+    title: "Professional Certificate in User Research",
+    issuer: "UX Design Institute",
     date: "January 2026",
-    description: "University credit-rated qualification in User Research demonstrating mastery in understanding user needs, formulating research plans, extracting insights, and driving actionable outcomes through user-centric methodologies.",
-    image: "/images/certificates/nngroup-certificate.png",
-    verifyUrl: "",
+    description: "University credit-rated qualification in User Research demonstrating mastery in understanding user needs, formulating research plans, extracting insights, and driving actionable outcomes through user-centric methodologies. SCQF credit-rated by Glasgow Caledonian University.",
+    image: "/images/certificates/uxdi-user-research.png",
+    verifyUrl: "https://www.credential.net/171868578",
   },
   {
     title: "Interaction Design Specialization",
@@ -96,13 +96,18 @@ const AlwaysLearning = () => {
                 <div className="bg-card border border-border rounded-lg overflow-hidden">
                   {/* Certificate image area */}
                   {cert.image ? (
-                    <div className="w-full bg-muted/30 p-4">
+                    <a
+                      href={cert.verifyUrl || "#"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full bg-muted/30 p-4 cursor-pointer hover:bg-muted/50 transition-colors"
+                    >
                       <img
                         src={cert.image}
                         alt={cert.title}
                         className="w-full object-contain"
                       />
-                    </div>
+                    </a>
                   ) : (
                     <div className="w-full aspect-[16/9] bg-muted flex items-center justify-center">
                       <span className="font-display text-xs text-muted-foreground tracking-[0.15em] uppercase">
