@@ -7,23 +7,11 @@ import { usePageTransition } from "./PageTransition";
 const Navigation = () => {
   const [homeHovered, setHomeHovered] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-  const [blendNegative, setBlendNegative] = useState(false);
   const navigatingRef = useRef(false);
   const location = useLocation();
   const { navigateTo } = usePageTransition();
   const isAbout = location.pathname === "/about";
   const isCaseStudy = location.pathname !== "/" && location.pathname !== "/about";
-
-  // Toggle blend mode when scrolled past the hero area
-  useEffect(() => {
-    if (location.pathname !== "/") return;
-    const handleScroll = () => {
-      setBlendNegative(window.scrollY > window.innerHeight * 0.5);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [location.pathname]);
 
   // Reset hover state whenever we arrive at a new page
   useEffect(() => {
@@ -68,13 +56,13 @@ const Navigation = () => {
 
   // Default nav with photo card
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style={blendNegative ? { mixBlendMode: "difference" } : undefined}>
+    <nav className="fixed top-0 left-0 right-0 z-50" style={{ mixBlendMode: "difference" }}>
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="flex items-center h-20 md:h-24">
           {/* Photo card stack */}
           <button
             onClick={() => handleNav("/about")}
-            className="relative w-[88px] h-[112px] md:w-24 md:h-[128px] shrink-0 group mt-[10vh]"
+            className="relative w-[88px] h-[112px] md:w-24 md:h-[128px] shrink-0 group mt-[10vh] isolate"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
