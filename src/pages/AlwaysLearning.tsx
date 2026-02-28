@@ -75,70 +75,58 @@ const AlwaysLearning = () => {
         </div>
       </section>
 
-      {/* Timeline */}
+      {/* Certificates */}
       <section className="px-6 md:px-12 lg:px-24 py-12">
-        <div className="max-w-4xl mx-auto relative">
-          {/* Vertical line */}
-          <div className="absolute left-4 md:left-8 top-0 bottom-0 w-px bg-border" />
-
-          <div className="flex flex-col gap-12">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex flex-col gap-16">
             {certificates.map((cert, index) => (
-              <div key={index} className="relative pl-12 md:pl-20">
-                {/* Timeline dot */}
-                <div className="absolute left-2.5 md:left-6.5 top-1 w-3 h-3 rounded-full bg-foreground border-2 border-background" />
+              <div
+                key={index}
+                className={`flex flex-col md:flex-row gap-8 items-start ${
+                  index < certificates.length - 1 ? "pb-16 border-b border-border" : ""
+                }`}
+              >
+                {/* Image */}
+                {cert.image ? (
+                  <a
+                    href={cert.verifyUrl || "#"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="shrink-0 hover:opacity-90 transition-opacity"
+                  >
+                    <img
+                      src={cert.image}
+                      alt={cert.title}
+                      className="max-w-xs w-full rounded shadow-lg"
+                    />
+                  </a>
+                ) : null}
 
-                {/* Date badge */}
-                <span className="inline-block text-[11px] font-bold text-muted-foreground tracking-[0.15em] uppercase mb-3">
-                  {cert.date}
-                </span>
-
-                {/* Card */}
-                <div className="bg-card border border-border rounded-lg overflow-hidden">
-                  {/* Certificate image area */}
-                  {cert.image ? (
+                {/* Details */}
+                <div className="flex flex-col justify-center">
+                  <span className="text-[11px] font-bold text-muted-foreground tracking-[0.15em] uppercase mb-2">
+                    {cert.date}
+                  </span>
+                  <h3 className="font-display text-base md:text-lg font-bold text-foreground mb-1">
+                    {cert.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground font-medium mb-3">
+                    {cert.issuer}
+                  </p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {cert.description}
+                  </p>
+                  {cert.verifyUrl && (
                     <a
-                      href={cert.verifyUrl || "#"}
+                      href={cert.verifyUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex justify-center bg-muted/30 p-6 cursor-pointer hover:bg-muted/50 transition-colors"
+                      className="inline-flex items-center gap-1 text-xs text-foreground font-medium tracking-wide mt-4 hover:opacity-70 transition-opacity"
                     >
-                      <img
-                        src={cert.image}
-                        alt={cert.title}
-                        className="max-w-sm w-full object-contain"
-                      />
+                      Verify credential
+                      <ExternalLink size={12} />
                     </a>
-                  ) : (
-                    <div className="w-full aspect-[16/9] bg-muted flex items-center justify-center">
-                      <span className="font-display text-xs text-muted-foreground tracking-[0.15em] uppercase">
-                        Certificate
-                      </span>
-                    </div>
                   )}
-
-                  {/* Details */}
-                  <div className="p-5 md:p-6">
-                    <h3 className="font-display text-base md:text-lg font-bold text-foreground mb-1">
-                      {cert.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground font-medium mb-3">
-                      {cert.issuer}
-                    </p>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {cert.description}
-                    </p>
-                    {cert.verifyUrl && (
-                      <a
-                        href={cert.verifyUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-xs text-foreground font-medium tracking-wide mt-4 hover:opacity-70 transition-opacity"
-                      >
-                        Verify credential
-                        <ExternalLink size={12} />
-                      </a>
-                    )}
-                  </div>
                 </div>
               </div>
             ))}
