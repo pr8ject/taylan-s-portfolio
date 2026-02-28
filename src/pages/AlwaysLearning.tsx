@@ -52,6 +52,14 @@ const certificates: Certificate[] = [
     image: "/images/certificates/ixdf-personas-user-research.png",
     verifyUrl: "https://www.interaction-design.org/members/ozgur-taylan-celik/certificate/course/0167bcc0-81ad-416d-ba65-7fe2c7246739",
   },
+  {
+    title: "UX Research",
+    issuer: "Uxcel",
+    date: "May 2025",
+    description: "Completed the intermediate-level UX Research course, equivalent to 6+ hours of professional training. Credentials verified.",
+    image: "/images/certificates/uxcel-ux-research.png",
+    verifyUrl: "https://app.uxcel.com/certificates/084YS2CKHUXA",
+  },
 ];
 
 const AlwaysLearning = () => {
