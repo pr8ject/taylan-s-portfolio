@@ -1,10 +1,12 @@
 import { usePageTransition } from "@/components/PageTransition";
+import NdaGate from "@/components/NdaGate";
 import { ChevronLeft } from "lucide-react";
 
 const HumanCentered = () => {
   const { navigateTo } = usePageTransition();
 
   return (
+    <NdaGate>
     <div className="bg-background min-h-screen">
       {/* Nav — x-ray blend */}
       <nav className="fixed top-0 left-0 right-0 z-50" style={{ mixBlendMode: "difference" }}>
@@ -316,6 +318,7 @@ const HumanCentered = () => {
         </div>
       </section>
     </div>
+    </NdaGate>
   );
 };
 
