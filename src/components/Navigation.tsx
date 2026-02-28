@@ -56,13 +56,13 @@ const Navigation = () => {
 
   // Default nav with photo card
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50" style={{ mixBlendMode: "difference" }}>
+    <nav className="fixed top-0 left-0 right-0 z-50">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="flex items-center h-20 md:h-24">
           {/* Photo card stack */}
           <button
             onClick={() => handleNav("/about")}
-            className="relative w-[88px] h-[112px] md:w-24 md:h-[128px] shrink-0 group mt-[10vh] isolate"
+            className="relative w-[88px] h-[112px] md:w-24 md:h-[128px] shrink-0 group mt-[10vh]"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
@@ -97,6 +97,7 @@ const Navigation = () => {
                 "absolute inset-0 rounded-xl overflow-hidden grayscale shadow-sm transition-transform duration-500 ease-out pointer-events-none",
                 isHovered ? "-rotate-3 -translate-x-0.5" : "rotate-0 translate-x-0"
               )}
+              style={{ mixBlendMode: "difference" }}
             >
               <img
                 src="/images/profile-cutout.png"
