@@ -163,7 +163,7 @@ const HumanCentered = () => {
           <div className="mb-12 pb-12 border-b border-border">
             <div className="flex items-start gap-4 mb-4">
               <span className="text-xs font-bold text-muted-foreground tracking-wider min-w-fit">FINDING 01</span>
-              <h3 className="text-lg font-bold text-foreground">Hızlı Erişim — Ani Nakit İhtiyacı</h3>
+              <h3 className="text-lg font-bold text-foreground">Quick Access — Urgent Cash Needs</h3>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Business owners need <strong className="text-foreground">instant access to cash</strong>. Their financial needs are urgent and unpredictable — a supplier payment, a sudden opportunity, a gap between receivables. Speed isn't a feature preference; it's a survival mechanism.
@@ -174,7 +174,7 @@ const HumanCentered = () => {
           <div className="mb-12 pb-12 border-b border-border">
             <div className="flex items-start gap-4 mb-4">
               <span className="text-xs font-bold text-muted-foreground tracking-wider min-w-fit">FINDING 02</span>
-              <h3 className="text-lg font-bold text-foreground">Kullanıcıya Özel İmkanlar (Esneklik)</h3>
+              <h3 className="text-lg font-bold text-foreground">Personalized Options (Flexibility)</h3>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Customers strongly value <strong className="text-foreground">personalized, flexible options</strong>. A one-size-fits-all loan structure doesn't reflect the reality of running a business. They want terms that adapt to their unique cash flow patterns and seasonal rhythms.
@@ -185,7 +185,7 @@ const HumanCentered = () => {
           <div className="mb-12 pb-12 border-b border-border">
             <div className="flex items-start gap-4 mb-4">
               <span className="text-xs font-bold text-muted-foreground tracking-wider min-w-fit">FINDING 03</span>
-              <h3 className="text-lg font-bold text-foreground">Tanıdıklık ve İletişimin Önemi</h3>
+              <h3 className="text-lg font-bold text-foreground">The Power of Familiarity and Communication</h3>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
               <strong className="text-foreground">Familiarity and personal communication</strong> are critical trust drivers. These customers want to feel known — a banker who understands their business, not a call center reading a script. The human relationship is often the deciding factor.
@@ -196,7 +196,7 @@ const HumanCentered = () => {
           <div className="mb-12 pb-12 border-b border-border">
             <div className="flex items-start gap-4 mb-4">
               <span className="text-xs font-bold text-muted-foreground tracking-wider min-w-fit">FINDING 04</span>
-              <h3 className="text-lg font-bold text-foreground">Farklı İmkanları Değerlendirme Kapasitesi</h3>
+              <h3 className="text-lg font-bold text-foreground">Limited Capacity to Compare Options</h3>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Many customers <strong className="text-foreground">lack the capacity to evaluate different financial options</strong>. They don't compare products or rates — they go with what's familiar or what's offered first. This isn't laziness; it's cognitive overload in the context of running a business.
@@ -207,7 +207,7 @@ const HumanCentered = () => {
           <div className="mb-12 pb-12 border-b border-border">
             <div className="flex items-start gap-4 mb-4">
               <span className="text-xs font-bold text-muted-foreground tracking-wider min-w-fit">FINDING 05</span>
-              <h3 className="text-lg font-bold text-foreground">Sadece Kredi İçin Geliyorlar</h3>
+              <h3 className="text-lg font-bold text-foreground">They Only Come for the Loan</h3>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
               These customers <strong className="text-foreground">come only for the loan</strong>. They don't explore other banking products. They don't see Fibabanka as their bank — they see it as a credit tool. The relationship begins and ends with the loan transaction.
