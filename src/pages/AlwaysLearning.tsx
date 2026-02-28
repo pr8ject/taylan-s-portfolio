@@ -23,7 +23,7 @@ const certificates: Certificate[] = [
   {
     title: "Professional Diploma in UX Design",
     issuer: "Glasgow Caledonian University via UXDI",
-    date: "2023",
+    date: "2025",
     description: "Deep dive into interaction design principles, information architecture, and user-centered design processes.",
     image: "/images/certificates/nngroup-certificate.png",
     verifyUrl: "https://www.credential.net/124892631",
