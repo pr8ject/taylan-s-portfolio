@@ -194,6 +194,20 @@ const MobileSnapLayout = ({
   const topImages = topSlot.projectId !== null ? hoverImages[topSlot.projectId] : undefined;
   const bottomItem = mobileBottomSlots[currentStep.bottomIdx];
 
+  // Cycle through thumbnail images for mobile top panel
+  const [mobileImgIdx, setMobileImgIdx] = useState(0);
+  useEffect(() => {
+    if (!topImages || topImages.length <= 1) {
+      setMobileImgIdx(0);
+      return;
+    }
+    setMobileImgIdx(0);
+    const interval = setInterval(() => {
+      setMobileImgIdx((prev) => (prev + 1) % topImages.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, [topSlot.projectId, topImages]);
+
   // Figure out which panel changes for a given direction
   const getChangingPanel = useCallback((fromStep: number, direction: 1 | -1): "top" | "bottom" => {
     const nextIdx = fromStep + direction;
@@ -316,11 +330,17 @@ const MobileSnapLayout = ({
             {topSlot.title}
           </h1>
           {topImages && topImages.length > 0 && (
-            <img
-              src={topImages[0]}
-              alt={topSlot.title}
-              className="w-48 h-36 object-cover rounded-sm mt-5"
-            />
+            <div className="relative w-48 h-36 mt-5 rounded-sm overflow-hidden">
+              {topImages.map((src, i) => (
+                <img
+                  key={src}
+                  src={src}
+                  alt={topSlot.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+                  style={{ opacity: i === mobileImgIdx ? 1 : 0 }}
+                />
+              ))}
+            </div>
           )}
           {topSlot.category && (
             <span className="block text-[11px] text-muted-foreground tracking-[0.12em] uppercase mt-3 text-center">
