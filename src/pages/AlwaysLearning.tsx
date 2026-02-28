@@ -37,11 +37,12 @@ const certificates: Certificate[] = [
     verifyUrl: "https://www.interaction-design.org/members/ozgur-taylan-celik/certificate/masterclass/mcc_5d72290bf2444fe6a1cc1e772d2fa629",
   },
   {
-    title: "Service Design Fundamentals",
-    issuer: "NNGroup",
-    date: "2022",
-    description: "End-to-end service design covering journey mapping, blueprinting, and organizational alignment.",
-    verifyUrl: "",
+    title: "Design for AI Agents: Healthcare and High-Stakes Systems",
+    issuer: "Interaction Design Foundation (IxDF)",
+    date: "2025",
+    description: "Master Class on designing AI agent experiences for healthcare and high-stakes systems, covering safety, trust, and responsible AI design patterns.",
+    image: "/images/certificates/ixdf-ai-agents-healthcare.png",
+    verifyUrl: "https://www.interaction-design.org/members/ozgur-taylan-celik/certificate/masterclass/mcc_81647da2a2f1426895af5388dbcf72e4",
   },
 ];
 
