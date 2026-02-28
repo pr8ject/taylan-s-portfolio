@@ -21,8 +21,8 @@ const certificates: Certificate[] = [
     verifyUrl: "https://www.credential.net/171868578",
   },
   {
-    title: "Interaction Design Specialization",
-    issuer: "UC San Diego / Coursera",
+    title: "Professional Diploma in UX Design",
+    issuer: "Glasgow Caledonian University via UXDI",
     date: "2023",
     description: "Deep dive into interaction design principles, information architecture, and user-centered design processes.",
     image: "/images/certificates/nngroup-certificate.png",
