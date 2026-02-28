@@ -140,7 +140,7 @@ const HumanCentered = () => {
             </div>
           </div>
 
-          {/* Workshop photo */}
+          {/* Workshop photos */}
           <div className="mb-12">
             <img
               src="/images/human-centered/workshop-presentation.jpg"
@@ -149,6 +149,33 @@ const HumanCentered = () => {
             />
             <p className="text-[11px] text-muted-foreground/50 mt-2 tracking-wider uppercase">
               Presenting research findings during the design workshop
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
+            <div>
+              <img
+                src="/images/human-centered/workshop-3.jpg"
+                alt="Workshop session with the team"
+                className="w-full rounded-lg border border-border aspect-[4/3] object-cover"
+              />
+            </div>
+            <div>
+              <img
+                src="/images/human-centered/workshop-4.jpg"
+                alt="Collaborative workshop activity"
+                className="w-full rounded-lg border border-border aspect-[4/3] object-cover"
+              />
+            </div>
+            <div>
+              <img
+                src="/images/human-centered/workshop-5.jpg"
+                alt="Team workshop in progress"
+                className="w-full rounded-lg border border-border aspect-[4/3] object-cover"
+              />
+            </div>
+            <p className="text-[11px] text-muted-foreground/50 mt-1 tracking-wider uppercase md:col-span-3">
+              Workshop sessions — collaborative research activities
             </p>
           </div>
 
