@@ -42,7 +42,7 @@ const TrustByDesign = () => {
       <section className="px-6 md:px-12 lg:px-24 pt-16 pb-8">
         <div className="max-w-4xl mx-auto">
           <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-black text-foreground uppercase tracking-tight mb-4">
-            Trust By Design
+            Trust by Design
           </h1>
           <p className="text-base text-muted-foreground">
             How a Workshop for 60 People Became a CHI 2026 Paper on Bias
