@@ -6,7 +6,7 @@ const projects = [
   { id: 1, title: "Beyond\nThe Screen.", category: "Field Research Case Study. Service Design, UX Research", type: "title" as const, link: "/beyond-the-screen", image: "" },
   { id: 3, title: "Hayvanât", category: "Website Redesign, UX Research", type: "image" as const, link: "/hayvanat", image: "/images/hayvanat/hayvanat-web.png" },
   { id: 4, title: "Searcho", category: "Start-Up. AI-Native Customer Researcher", type: "image" as const, link: "/searcho", image: "/images/searcho/hero.png" },
-  { id: 5, title: "Trust By\nDesign.", category: "Wealth Management Workshop. UX Strategy", type: "title" as const, link: "/trust-by-design", image: "" },
+  { id: 5, title: "Trust by\nDesign.", category: "Wealth Management Workshop. UX Strategy", type: "title" as const, link: "/trust-by-design", image: "" },
   { id: 9, title: "Human\nCentered.", category: "Workshop for Corporate Clients. Design Thinking", type: "title" as const, link: "/human-centered", image: "" },
   { id: 10, title: "OTC Options Platform", category: "AI Hackathon, Jury Special Prize", type: "image" as const, link: "/otc-hackathon", image: "/images/otc-hackathon/thumbnail.png" },
   { id: 11, title: "Always\nLearning.", category: "My Certificates. Personal Growth", type: "title" as const, link: "/always-learning", image: "" },
