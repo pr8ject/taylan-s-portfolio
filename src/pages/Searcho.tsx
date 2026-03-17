@@ -357,7 +357,7 @@ const Searcho = () => {
                   onClick={() => navigateTo("/trust-by-design")}
                   className="block text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                 >
-                  Trust By Design — CHI 2026 Paper →
+                  Trust by Design — CHI 2026 Paper →
                 </button>
                 <button
                   onClick={() => navigateTo("/beyond-the-screen")}

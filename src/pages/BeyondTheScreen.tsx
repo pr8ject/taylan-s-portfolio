@@ -567,7 +567,7 @@ const BeyondTheScreen = () => {
                   onClick={() => navigateTo("/trust-by-design")}
                   className="block text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                 >
-                  Trust By Design — Workshop & CHI Paper →
+                  Trust by Design — Workshop & CHI Paper →
                 </button>
                 <button
                   onClick={() => navigateTo("/hayvanat")}
