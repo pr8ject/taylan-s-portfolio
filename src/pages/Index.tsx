@@ -1,12 +1,13 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { usePageTransition } from "@/components/PageTransition";
+import { useInView } from "@/hooks/use-in-view";
 
 // Project data — mix of typographic titles and image cards
 const projects = [
   { id: 1, title: "Beyond\nThe Screen.", category: "Field Research Case Study. Service Design, UX Research", type: "title" as const, link: "/beyond-the-screen", image: "" },
   { id: 3, title: "Hayvanât", category: "Website Redesign, UX Research", type: "image" as const, link: "/hayvanat", image: "/images/hayvanat/hayvanat-web.png" },
   { id: 4, title: "Searcho", category: "Start-Up. AI-Native Customer Researcher", type: "image" as const, link: "/searcho", image: "/images/searcho/hero.png" },
-  { id: 5, title: "Trust By\nDesign.", category: "Wealth Management Workshop. UX Strategy", type: "title" as const, link: "/trust-by-design", image: "" },
+  { id: 5, title: "Trust by\nDesign.", category: "Wealth Management Workshop. UX Strategy", type: "title" as const, link: "/trust-by-design", image: "" },
   { id: 9, title: "Human\nCentered.", category: "Workshop for Corporate Clients. Design Thinking", type: "title" as const, link: "/human-centered", image: "" },
   { id: 10, title: "OTC Options Platform", category: "AI Hackathon, Jury Special Prize", type: "image" as const, link: "/otc-hackathon", image: "/images/otc-hackathon/thumbnail.png" },
   { id: 11, title: "Always\nLearning.", category: "My Certificates. Personal Growth", type: "title" as const, link: "/always-learning", image: "" },
@@ -48,22 +49,16 @@ projects.forEach((p) => {
   }
 });
 
-// ─── DESKTOP: Floating image that follows cursor on hover ───
-const HoverImage = ({
-  mousePos,
-  visible,
-  hoveredId,
-}: {
-  mousePos: { x: number; y: number };
-  visible: boolean;
-  hoveredId: number | null;
-}) => {
+// ─── DESKTOP: Per-card image slot — reveals on scroll-into-view or hover ───
+const CardImage = ({ images }: { images: string[] | undefined }) => {
+  const [setRef, inView] = useInView<HTMLDivElement>();
+  const [hovered, setHovered] = useState(false);
   const [slideIndex, setSlideIndex] = useState(0);
-  const images = hoveredId !== null ? hoverImages[hoveredId] : undefined;
+  const active = inView || hovered;
   const isSlideshow = images && images.length > 1;
 
   useEffect(() => {
-    if (!visible || !isSlideshow) {
+    if (!active || !isSlideshow) {
       setSlideIndex(0);
       return;
     }
@@ -71,39 +66,42 @@ const HoverImage = ({
       setSlideIndex((prev) => (prev + 1) % images.length);
     }, 1000);
     return () => clearInterval(interval);
-  }, [visible, isSlideshow, images]);
+  }, [active, isSlideshow, images]);
+
+  if (!images) return null;
 
   return (
     <div
-      className="hidden md:block fixed pointer-events-none z-40 w-56 h-40 overflow-hidden transition-all duration-300 ease-out rounded-sm"
-      style={{
-        left: mousePos.x + 16,
-        top: mousePos.y - 80,
-        opacity: visible && images ? 1 : 0,
-        transform: visible ? "scale(1)" : "scale(0.9)",
-      }}
+      ref={setRef}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className={`w-44 h-28 overflow-hidden rounded-sm transition-all duration-300 ${
+        active ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+      }`}
     >
-      {images ? (
-        <div className="relative w-full h-full">
-          {images.map((src, i) => (
-            <img
-              key={src}
-              src={src}
-              alt={`Slide ${i + 1}`}
-              className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500"
-              style={{ opacity: i === slideIndex ? 1 : 0 }}
-            />
-          ))}
-          <div className="absolute inset-0 w-full h-full bg-muted -z-10" />
-        </div>
-      ) : (
-        <div className="w-full h-full bg-muted flex items-center justify-center">
-          <span className="text-xs text-muted-foreground tracking-[0.15em]">CASE STUDY</span>
-        </div>
-      )}
+      <div className="relative w-full h-full">
+        {images.map((src, i) => (
+          <img
+            key={src}
+            src={src}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500"
+            style={{ opacity: i === slideIndex ? 1 : 0 }}
+          />
+        ))}
+        <div className="absolute inset-0 w-full h-full bg-muted -z-10" />
+      </div>
     </div>
   );
 };
+
+// ─── DESKTOP: Animated underline beneath a title, revealed on group-hover ───
+const UnderlineTitle = ({ children }: { children: React.ReactNode }) => (
+  <span className="relative inline-block">
+    {children}
+    <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-foreground origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
+  </span>
+);
 
 // Sticky side names — desktop only
 const StickyNames = () => (
@@ -407,15 +405,9 @@ const MobileSnapLayout = ({
 // ─── DESKTOP: Asymmetric grid with hover interactions ───
 const DesktopProjectItem = ({
   item,
-  onTitleHover,
-  onTitleLeave,
-  onMouseMove,
   onNavigate,
 }: {
   item: (typeof projects)[number];
-  onTitleHover: (id: number) => void;
-  onTitleLeave: () => void;
-  onMouseMove: (e: React.MouseEvent) => void;
   onNavigate: (path: string) => void;
 }) => {
   if (item.type === "image") {
@@ -424,25 +416,12 @@ const DesktopProjectItem = ({
         className={`group flex flex-col ${item.link ? "cursor-pointer" : ""}`}
         onClick={() => item.link && onNavigate(item.link)}
       >
-        {/* Hero thumbnail — revealed on hover */}
-        <div className="w-44 h-28 mb-3 overflow-hidden rounded-sm opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
-          {hoverImages[item.id] ? (
-            <img
-              src={hoverImages[item.id][0]}
-              alt={item.title}
-              className="w-full h-full object-cover"
-            />
-          ) : (
-            <div className="w-full h-full bg-muted flex items-center justify-center">
-              <span className="text-[10px] text-muted-foreground tracking-[0.15em]">CASE STUDY</span>
-            </div>
-          )}
+        {/* Hero thumbnail — revealed on scroll-into-view or hover */}
+        <div className="mb-3">
+          <CardImage images={hoverImages[item.id]} />
         </div>
         <h2 className="font-display text-[22px] lg:text-[26px] font-light text-foreground leading-[1] tracking-[-0.01em] transition-colors duration-300 group-hover:text-muted-foreground">
-          <span className="relative inline-block">
-            {item.title}
-            <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-foreground origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
-          </span>
+          <UnderlineTitle>{item.title}</UnderlineTitle>
         </h2>
         <span className="block text-xs text-muted-foreground tracking-[0.1em] mt-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
           {item.category}
@@ -454,30 +433,26 @@ const DesktopProjectItem = ({
   return (
     <div
       className="group cursor-pointer"
-      onMouseEnter={() => onTitleHover(item.id)}
-      onMouseLeave={onTitleLeave}
-      onMouseMove={onMouseMove}
       onClick={() => item.link && onNavigate(item.link)}
     >
       <h2 className="font-display text-[48px] lg:text-[64px] font-black text-foreground leading-[0.88] tracking-[-0.03em] whitespace-pre-line transition-colors duration-300 group-hover:text-muted-foreground">
-        {item.title}
+        <UnderlineTitle>{item.title}</UnderlineTitle>
       </h2>
-      <span className="block text-xs text-muted-foreground tracking-[0.1em] mt-3">
+      <span className="block text-xs text-muted-foreground tracking-[0.1em] mt-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
         {item.category}
       </span>
+      {hoverImages[item.id] && (
+        <div className="mt-4">
+          <CardImage images={hoverImages[item.id]} />
+        </div>
+      )}
     </div>
   );
 };
 
 const DesktopGrid = ({
-  onTitleHover,
-  onTitleLeave,
-  onMouseMove,
   onNavigate,
 }: {
-  onTitleHover: (id: number) => void;
-  onTitleLeave: () => void;
-  onMouseMove: (e: React.MouseEvent) => void;
   onNavigate: (path: string) => void;
 }) => (
   <div className="pb-12 px-12 lg:px-20">
@@ -502,9 +477,6 @@ const DesktopGrid = ({
             >
               <DesktopProjectItem
                 item={item}
-                onTitleHover={onTitleHover}
-                onTitleLeave={onTitleLeave}
-                onMouseMove={onMouseMove}
                 onNavigate={onNavigate}
               />
             </div>
@@ -517,32 +489,19 @@ const DesktopGrid = ({
 
 // ─── Content block rendered twice for infinite scroll (desktop only) ───
 const ContentBlock = ({
-  onTitleHover,
-  onTitleLeave,
-  onMouseMove,
   onNavigate,
 }: {
-  onTitleHover: (id: number) => void;
-  onTitleLeave: () => void;
-  onMouseMove: (e: React.MouseEvent) => void;
   onNavigate: (path: string) => void;
 }) => (
   <>
     <HeroSection />
-    <DesktopGrid
-      onTitleHover={onTitleHover}
-      onTitleLeave={onTitleLeave}
-      onMouseMove={onMouseMove}
-      onNavigate={onNavigate}
-    />
+    <DesktopGrid onNavigate={onNavigate} />
   </>
 );
 
 const Index = () => {
   const firstBlockRef = useRef<HTMLDivElement>(null);
   const isResettingRef = useRef(false);
-  const [hoveredTitle, setHoveredTitle] = useState<number | null>(null);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const { navigateTo } = usePageTransition();
 
   // Detect mobile (< 768px) — check synchronously before first paint
@@ -603,13 +562,6 @@ const Index = () => {
       document.body.style.overflow = "";
     };
   }, [introActive]);
-
-  const handleTitleHover = useCallback((id: number) => setHoveredTitle(id), []);
-  const handleTitleLeave = useCallback(() => setHoveredTitle(null), []);
-  const handleMouseMove = useCallback(
-    (e: React.MouseEvent) => setMousePos({ x: e.clientX, y: e.clientY }),
-    []
-  );
 
   // Infinite scroll: reset when scrolled past the first copy
   const handleScroll = useCallback(() => {
@@ -684,27 +636,14 @@ const Index = () => {
       {/* Sticky side names — desktop only */}
       <StickyNames />
 
-      {/* Floating hover image — desktop only */}
-      <HoverImage mousePos={mousePos} visible={hoveredTitle !== null} hoveredId={hoveredTitle} />
-
       <div className="overflow-x-hidden">
         {/* First copy */}
         <div ref={firstBlockRef}>
-          <ContentBlock
-            onTitleHover={handleTitleHover}
-            onTitleLeave={handleTitleLeave}
-            onMouseMove={handleMouseMove}
-            onNavigate={navigateTo}
-          />
+          <ContentBlock onNavigate={navigateTo} />
         </div>
 
         {/* Second copy for seamless loop */}
-        <ContentBlock
-          onTitleHover={handleTitleHover}
-          onTitleLeave={handleTitleLeave}
-          onMouseMove={handleMouseMove}
-          onNavigate={navigateTo}
-        />
+        <ContentBlock onNavigate={navigateTo} />
       </div>
     </>
   );
